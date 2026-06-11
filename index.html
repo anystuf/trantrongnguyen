@@ -151,11 +151,11 @@
         }
 
         .hero {
-            padding: 84px 0 72px;
+            padding: 76px 0 72px;
             min-height: calc(100vh - 72px);
             display: grid;
-            grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
-            gap: 42px;
+            grid-template-columns: minmax(300px, 0.82fr) minmax(0, 1fr);
+            gap: clamp(2rem, 5vw, 5rem);
             align-items: center;
         }
 
@@ -177,8 +177,8 @@
         }
 
         h1 {
-            font-size: clamp(2.65rem, 6vw, 5.4rem);
-            max-width: 780px;
+            font-size: clamp(3rem, 6vw, 5.2rem);
+            max-width: 820px;
         }
 
         h2 {
@@ -198,6 +198,91 @@
             color: var(--muted);
             font-size: clamp(1.02rem, 2vw, 1.2rem);
             max-width: 680px;
+        }
+
+        .portrait-card {
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+                var(--panel);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            max-width: 470px;
+        }
+
+        .portrait {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            object-position: center top;
+            filter: saturate(0.98) contrast(1.04);
+            background: var(--panel-strong);
+        }
+
+        .portrait-caption {
+            padding: 1rem 1.15rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--muted);
+            font-weight: 800;
+            font-size: 0.88rem;
+        }
+
+        .caption-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: var(--green);
+            box-shadow: 0 0 0 5px rgba(125, 211, 168, 0.12);
+            flex: 0 0 auto;
+        }
+
+        .profile-content {
+            max-width: 720px;
+        }
+
+        .profile-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            min-height: 38px;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid rgba(79, 209, 197, 0.35);
+            background: rgba(79, 209, 197, 0.08);
+            color: var(--cyan);
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.78rem;
+        }
+
+        .profile-subtitle {
+            margin-top: 0.8rem;
+            color: var(--amber);
+            font-size: 1.08rem;
+            font-weight: 900;
+        }
+
+        .profile-text {
+            margin-top: 1.45rem;
+            display: grid;
+            gap: 1rem;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .profile-text strong {
+            color: var(--text);
         }
 
         .hero-actions,
@@ -269,47 +354,11 @@
             text-transform: uppercase;
         }
 
-        .hero-proof {
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            background: linear-gradient(180deg, rgba(17, 31, 51, 0.92), rgba(13, 23, 38, 0.94));
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .proof-top {
-            padding: 1.25rem;
-            display: grid;
-            grid-template-columns: 128px 1fr;
-            gap: 1.25rem;
-            align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .proof-top h2 {
-            font-size: clamp(1.7rem, 3vw, 2.65rem);
-            line-height: 1.12;
-            max-width: 420px;
-        }
-
-        .proof-top .eyebrow {
-            margin-bottom: 0.65rem;
-        }
-
-        .avatar {
-            width: 128px;
-            height: 128px;
-            border-radius: var(--radius);
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            object-fit: cover;
-            object-position: center top;
-            background: var(--panel);
-        }
-
         .proof-list {
             display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 0.75rem;
-            padding: 1rem;
+            margin-top: 1.3rem;
         }
 
         .proof-item {
@@ -319,6 +368,7 @@
             align-items: start;
             padding: 0.85rem;
             border-radius: var(--radius);
+            border: 1px solid var(--line);
             background: rgba(255, 255, 255, 0.04);
         }
 
@@ -546,12 +596,24 @@
                 grid-template-columns: 1fr;
             }
 
+            .hero {
+                min-height: auto;
+            }
+
+            .portrait-card {
+                max-width: 420px;
+            }
+
             .grid.three {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .metrics {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .proof-list {
+                grid-template-columns: 1fr;
             }
 
             .nav-links {
@@ -606,15 +668,6 @@
             .metrics {
                 grid-template-columns: 1fr;
             }
-
-            .proof-top {
-                grid-template-columns: 1fr;
-            }
-
-            .avatar {
-                width: 136px;
-                height: 136px;
-            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -655,18 +708,28 @@
 
     <main class="page" id="main">
         <section class="hero" id="top">
-            <div>
-                <p class="eyebrow">Software engineering + product evidence</p>
-                <h1>Building AI, mobile, and HCI products with proof you can inspect.</h1>
-                <p class="lead">
-                    I am a Technology and Innovation student at UEH focused on turning university projects into usable systems:
-                    Flutter apps, computer-vision workflows, research prototypes, and product strategy case studies.
-                </p>
+            <figure class="portrait-card">
+                <img class="portrait" src="https://avatars.githubusercontent.com/u/231724115?s=640&u=9d6c976419f20015002fc7369863eaa93bbe9c7c&v=4" alt="Tran Trong Nguyen portrait">
+                <figcaption class="portrait-caption">
+                    <span>Tran Trong Nguyen</span>
+                    <span class="caption-status"><span class="status-dot" aria-hidden="true"></span>Open to internships</span>
+                </figcaption>
+            </figure>
 
-                <div class="hero-actions" aria-label="Portfolio actions">
-                    <a class="button primary" href="#evidence"><i class="fa-solid fa-play"></i> View Demos</a>
-                    <a class="button" href="https://github.com/anystuf/trantrongnguyen" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub Repo</a>
-                    <a class="button" href="assets/reports/academic-record.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-lines"></i> Academic Record</a>
+            <div class="profile-content">
+                <span class="profile-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Portfolio with proof</span>
+                <h1>Tran Trong Nguyen</h1>
+                <p class="profile-subtitle">Technology and Innovation student at UEH | Software Engineering, AI, Mobile and HCI</p>
+
+                <div class="profile-text">
+                    <p>
+                        I build practical university projects that can be inspected, not just described:
+                        <strong>Flutter mobile apps</strong>, AI-assisted workflows, computer-vision concepts, and HCI research prototypes.
+                    </p>
+                    <p>
+                        My strongest work combines engineering execution with product thinking: clear user flows, visible evidence, reports,
+                        demo videos, and measurable academic validation.
+                    </p>
                 </div>
 
                 <div class="metrics" aria-label="Portfolio highlights">
@@ -687,15 +750,11 @@
                         <span>Current GPA / 4.0</span>
                     </div>
                 </div>
-            </div>
 
-            <aside class="hero-proof" aria-label="Identity and evidence summary">
-                <div class="proof-top">
-                    <img class="avatar" src="https://avatars.githubusercontent.com/u/231724115?s=400&u=9d6c976419f20015002fc7369863eaa93bbe9c7c&v=4" alt="Tran Trong Nguyen portrait">
-                    <div>
-                        <p class="eyebrow">Open to international opportunities</p>
-                        <h2>Product-minded software engineer in training.</h2>
-                    </div>
+                <div class="hero-actions" aria-label="Portfolio actions">
+                    <a class="button primary" href="#evidence"><i class="fa-solid fa-play"></i> View Demos</a>
+                    <a class="button" href="https://github.com/anystuf/trantrongnguyen" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub Repo</a>
+                    <a class="button" href="assets/reports/academic-record.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-lines"></i> Academic Record</a>
                 </div>
 
                 <div class="proof-list">
@@ -721,7 +780,7 @@
                         </div>
                     </div>
                 </div>
-            </aside>
+            </div>
         </section>
 
         <section class="section" id="projects">
