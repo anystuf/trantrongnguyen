@@ -1,767 +1,1082 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tran Trong Nguyen | Product-Minded Software Engineer Portfolio</title>
-    
-    <meta name="description" content="Portfolio of Tran Trong Nguyen - Product-Minded Software Engineer specializing in AI integration, Mobile/Web development, and Human-Computer Interaction (HCI).">
-    
+    <title>Tran Trong Nguyen | Software Engineer Portfolio</title>
+    <meta name="description" content="Portfolio of Tran Trong Nguyen, a Technology and Innovation student building AI, mobile, HCI, and product strategy projects with visible evidence.">
+    <meta name="theme-color" content="#07111f">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                    colors: {
-                        darkbg: '#030712',      /* Deep slate-black base */
-                        cardbg: '#0b0f19',      /* High-end navy black container code */
-                        cardborder: '#1f2937',  /* Subtle dark border line */
-                        accentCyan: '#22d3ee',  /* Electric Cyan highlight */
-                        accentAmber: '#fbbf24', /* High-contrast warm amber */
-                        accentOrange: '#f97316'/* High-energy premium orange */
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
-        /* Custom Premium Utilities & HCI Enhancements */
+        :root {
+            --bg: #07111f;
+            --panel: #0d1726;
+            --panel-strong: #111f33;
+            --line: #223147;
+            --text: #ecf3ff;
+            --muted: #9cadc4;
+            --soft: #6f8198;
+            --cyan: #4fd1c5;
+            --blue: #60a5fa;
+            --amber: #f6c453;
+            --coral: #fb7185;
+            --green: #7dd3a8;
+            --radius: 8px;
+            --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #030712;
-            overflow-x: hidden;
-        }
-        
-        /* Subtle Premium Grid Texture Overlay */
-        .tech-grid-bg {
-            background-image: linear-gradient(rgba(31, 41, 55, 0.15) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(31, 41, 55, 0.15) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        /* Glassmorphism Configuration for HCI Floating Bars */
-        .premium-blur {
-            background: rgba(3, 7, 18, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--text);
+            background:
+                linear-gradient(180deg, rgba(7, 17, 31, 0.92), rgba(7, 17, 31, 0.98)),
+                radial-gradient(circle at 18% 0%, rgba(79, 209, 197, 0.16), transparent 28%),
+                radial-gradient(circle at 85% 8%, rgba(246, 196, 83, 0.12), transparent 25%),
+                #07111f;
+            line-height: 1.6;
         }
 
-        /* HCI Keyboard Navigation Focus State Enhancement (WCAG standard) */
-        *:focus-visible {
-            outline: 2px dashed #22d3ee !important;
-            outline-offset: 4px;
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
-        /* Dynamic Visual Hierarchy Animations */
-        .glow-card {
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        img,
+        video {
+            max-width: 100%;
+            display: block;
         }
-        .glow-card::before {
-            content: '';
+
+        .skip-link {
             position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            padding: 1.5px;
-            background: linear-gradient(to bottom right, rgba(34,211,238,0.4), transparent, rgba(249,115,22,0.1));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            opacity: 0.4;
-            transition: opacity 0.4s ease;
-        }
-        .glow-card:hover::before {
-            opacity: 1;
+            left: 1rem;
+            top: -10rem;
+            z-index: 100;
+            background: var(--text);
+            color: var(--bg);
+            padding: 0.7rem 0.9rem;
+            border-radius: var(--radius);
+            font-weight: 800;
         }
 
-        /* Ambient Fluid Glow Blobs */
-        .glow-blob-cyan {
-            background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 70%);
-        }
-        .glow-blob-orange {
-            background: radial-gradient(circle, rgba(249, 115, 22, 0.06) 0%, transparent 70%);
+        .skip-link:focus {
+            top: 1rem;
         }
 
-        /* Custom Scrollbar for High-End Experience */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #030712;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1f2937;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #374151;
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(7, 17, 31, 0.86);
+            backdrop-filter: blur(18px);
         }
 
-        /* Reduced motion media query honoring user system accessibility configuration */
+        .nav {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .brand {
+            font-weight: 900;
+            letter-spacing: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .brand-mark {
+            width: 34px;
+            height: 34px;
+            border: 1px solid rgba(79, 209, 197, 0.45);
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            color: var(--cyan);
+            background: rgba(79, 209, 197, 0.08);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.1rem;
+            align-items: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: var(--text);
+        }
+
+        .menu-button {
+            display: none;
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            width: 42px;
+            height: 42px;
+            cursor: pointer;
+        }
+
+        .page {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 86px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero {
+            padding: 84px 0 72px;
+            min-height: calc(100vh - 72px);
+            display: grid;
+            grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+            gap: 42px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0;
+            font-size: 0.78rem;
+            font-weight: 900;
+            margin: 0 0 0.75rem;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.08;
+            margin: 0;
+            letter-spacing: 0;
+        }
+
+        h1 {
+            font-size: clamp(2.65rem, 6vw, 5.4rem);
+            max-width: 780px;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.3rem);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .lead {
+            margin-top: 1.4rem;
+            color: var(--muted);
+            font-size: clamp(1.02rem, 2vw, 1.2rem);
+            max-width: 680px;
+        }
+
+        .hero-actions,
+        .card-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.7rem;
+        }
+
+        .button {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            padding: 0.75rem 1rem;
+            font-weight: 900;
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.04);
+            transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-1px);
+            border-color: rgba(79, 209, 197, 0.65);
+            background: rgba(79, 209, 197, 0.09);
+        }
+
+        .button.primary {
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            color: #06111f;
+            border-color: transparent;
+        }
+
+        .button.small {
+            min-height: 38px;
+            padding: 0.55rem 0.75rem;
+            font-size: 0.82rem;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.7rem;
+            margin-top: 2.2rem;
+        }
+
+        .metric {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 1rem;
+            background: rgba(13, 23, 38, 0.76);
+        }
+
+        .metric strong {
+            display: block;
+            font-size: 1.55rem;
+            line-height: 1;
+        }
+
+        .metric span {
+            color: var(--soft);
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .hero-proof {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: linear-gradient(180deg, rgba(17, 31, 51, 0.92), rgba(13, 23, 38, 0.94));
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .proof-top {
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: 92px 1fr;
+            gap: 1rem;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .avatar {
+            width: 92px;
+            height: 92px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            object-fit: cover;
+            background: var(--panel);
+        }
+
+        .proof-list {
+            display: grid;
+            gap: 0.75rem;
+            padding: 1rem;
+        }
+
+        .proof-item {
+            display: grid;
+            grid-template-columns: 34px 1fr;
+            gap: 0.8rem;
+            align-items: start;
+            padding: 0.85rem;
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .proof-item i {
+            color: var(--amber);
+            margin-top: 0.2rem;
+        }
+
+        .proof-item strong {
+            display: block;
+        }
+
+        .proof-item span {
+            display: block;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-copy {
+            color: var(--muted);
+            max-width: 720px;
+            margin-top: 0.9rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .grid.two {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid.three {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .card {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(13, 23, 38, 0.8);
+            overflow: hidden;
+        }
+
+        .card-body {
+            padding: 1.1rem;
+        }
+
+        .media-frame {
+            aspect-ratio: 16 / 10;
+            background:
+                linear-gradient(135deg, rgba(79, 209, 197, 0.18), rgba(96, 165, 250, 0.08)),
+                var(--panel-strong);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: grid;
+            place-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-frame video,
+        .media-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .media-frame.contain img {
+            width: 48%;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.4));
+        }
+
+        .media-placeholder {
+            padding: 1rem;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        .media-placeholder i {
+            display: block;
+            font-size: 2rem;
+            color: var(--cyan);
+            margin-bottom: 0.65rem;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin: 0.95rem 0 0;
+        }
+
+        .tag {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.045);
+            color: #c8d5e8;
+            padding: 0.28rem 0.48rem;
+            border-radius: 999px;
+            font-size: 0.74rem;
+            font-weight: 800;
+        }
+
+        .card p {
+            color: var(--muted);
+            margin-top: 0.7rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+            display: grid;
+            gap: 0.55rem;
+            color: #c9d6e7;
+            font-size: 0.92rem;
+        }
+
+        .evidence-list li {
+            display: grid;
+            grid-template-columns: 22px 1fr;
+            gap: 0.5rem;
+        }
+
+        .evidence-list i {
+            color: var(--green);
+            margin-top: 0.25rem;
+        }
+
+        .report-card {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            padding: 1rem;
+        }
+
+        .report-icon {
+            width: 48px;
+            height: 58px;
+            border-radius: var(--radius);
+            display: grid;
+            place-items: center;
+            flex: 0 0 auto;
+            color: var(--bg);
+            background: linear-gradient(135deg, var(--amber), #fff0b8);
+            font-size: 1.2rem;
+        }
+
+        .report-card strong {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .report-card span {
+            color: var(--muted);
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .report-card a {
+            display: inline-flex;
+            margin-top: 0.75rem;
+            color: var(--cyan);
+            font-weight: 900;
+            font-size: 0.84rem;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .timeline-item {
+            border-left: 3px solid var(--cyan);
+            padding: 0.25rem 0 0.25rem 1rem;
+        }
+
+        .timeline-item span {
+            color: var(--muted);
+            display: block;
+            margin-top: 0.3rem;
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 1.4rem;
+            background: linear-gradient(135deg, rgba(79, 209, 197, 0.1), rgba(246, 196, 83, 0.08));
+        }
+
+        .footer {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 2rem 0 3rem;
+            color: var(--soft);
+            font-size: 0.86rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        :focus-visible {
+            outline: 3px solid rgba(79, 209, 197, 0.85);
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 920px) {
+            .hero,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+
+            .grid.three {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .metrics {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .nav-links {
+                position: absolute;
+                left: 16px;
+                right: 16px;
+                top: 72px;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                background: rgba(7, 17, 31, 0.98);
+                padding: 0.5rem;
+            }
+
+            .nav-links a {
+                padding: 0.85rem;
+                border-radius: var(--radius);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .menu-button {
+                display: inline-grid;
+                place-items: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .section {
+                padding: 64px 0;
+            }
+
+            .hero {
+                padding-top: 54px;
+                gap: 28px;
+            }
+
+            .section-head {
+                display: block;
+            }
+
+            .grid.two,
+            .grid.three {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .proof-top {
+                grid-template-columns: 1fr;
+            }
+
+            .avatar {
+                width: 112px;
+                height: 112px;
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-delay: 0s !important;
-                animation-duration: 0s !important;
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
-                background-attachment: initial !important;
                 scroll-behavior: auto !important;
-                transition-duration: 0s !important;
-                transition-delay: 0s !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
-<body class="text-slate-300 antialiased selection:bg-accentCyan/30 selection:text-white">
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 bg-gradient-to-r from-accentCyan to-accentOrange text-slate-950 px-5 py-3 rounded-lg font-bold z-50 shadow-xl transition-transform duration-200">
-        Skip to main content
-    </a>
+    <header class="site-header">
+        <nav class="nav" aria-label="Primary navigation">
+            <a class="brand" href="#top" aria-label="Tran Trong Nguyen portfolio home">
+                <span class="brand-mark"><i class="fa-solid fa-code"></i></span>
+                <span>Tran Trong Nguyen</span>
+            </a>
 
-    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] glow-blob-cyan pointer-events-none z-0"></div>
-    <div class="absolute top-[800px] right-1/4 w-[700px] h-[700px] glow-blob-orange pointer-events-none z-0"></div>
-    <div class="absolute top-[2200px] left-10 w-[600px] h-[600px] glow-blob-cyan pointer-events-none z-0"></div>
+            <button class="menu-button" type="button" id="menuButton" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
 
-    <header class="fixed top-0 w-full z-40 premium-blur border-b border-gray-800/60 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <a href="#" class="font-display text-xl font-extrabold tracking-tight text-white group">
-                    NGUYEN<span class="text-accentCyan group-hover:text-accentOrange transition-colors duration-300">.</span>DEV
-                </a>
-                
-                <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
-                    <a href="#about" class="text-slate-400 hover:text-white transition-colors duration-200">About</a>
-                    <a href="#skills" class="text-slate-400 hover:text-white transition-colors duration-200">Skills</a>
-                    <a href="#projects" class="text-slate-400 hover:text-white transition-colors duration-200">Projects</a>
-                    <a href="#education" class="text-slate-400 hover:text-white transition-colors duration-200">Education</a>
-                    <a href="#achievements" class="text-slate-400 hover:text-white transition-colors duration-200">Achievements</a>
-                </nav>
-
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="#contact" class="inline-flex items-center justify-center px-5 py-2 rounded-lg text-xs font-bold font-display uppercase tracking-wider text-darkbg bg-white hover:bg-accentCyan hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] transition-all duration-300 transform hover:-translate-y-0.5">
-                        Contact Me
-                    </a>
-                </div>
-
-                <button class="md:hidden flex items-center text-slate-400 hover:text-white focus:outline-none" id="mobile-menu-button" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobile-menu">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#projects">Projects</a>
+                <a href="#evidence">Evidence</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
             </div>
-        </div>
-
-        <div class="hidden md:hidden border-t border-gray-800 bg-darkbg/95 backdrop-blur-xl transition-all duration-300" id="mobile-menu">
-            <div class="px-4 pt-4 pb-6 space-y-3 font-display text-sm font-semibold tracking-wide">
-                <a href="#about" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-gray-800/60 hover:text-white transition-all">About</a>
-                <a href="#skills" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-gray-800/60 hover:text-white transition-all">Skills</a>
-                <a href="#projects" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-gray-800/60 hover:text-white transition-all">Projects</a>
-                <a href="#education" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-gray-800/60 hover:text-white transition-all">Education</a>
-                <a href="#achievements" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-gray-800/60 hover:text-white transition-all">Achievements</a>
-                <a href="#contact" class="block text-center px-3 py-3 rounded-lg bg-white text-darkbg font-bold uppercase tracking-wider transition-all">Contact Me</a>
-            </div>
-        </div>
+        </nav>
     </header>
 
-    <main id="main-content" class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 tech-grid-bg">
-        
-        <section id="hero" class="pt-36 pb-24 md:pt-48 md:pb-36 min-h-[90vh] flex flex-col justify-center">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <div class="lg:col-span-7 flex flex-col space-y-6">
-                    <div class="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full border border-accentCyan/30 bg-accentCyan/10 text-accentCyan text-xs font-bold uppercase tracking-widest font-display">
-                        <span class="flex h-2 w-2 relative">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accentCyan opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-accentCyan"></span>
-                        </span>
-                        Open to International Opportunities
-                    </div>
-                    
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-display tracking-tight text-white leading-[1.1]">
-                        Hi, I'm Tran Trong Nguyen <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-accentCyan via-blue-400 to-accentOrange">
-                            Human-Centered Builder.
-                        </span>
-                    </h1>
-                    
-                    <p class="text-lg text-slate-400 max-w-2xl leading-relaxed">
-                        An aspiring Software Engineer studying <strong class="text-slate-200">Technology and Innovation</strong>. I specialize in engineering systems that bridge intelligent backends with elite user experiences, guided strictly by <strong class="text-accentCyan">First Principles</strong> and Human-Computer Interaction (HCI) criteria.
-                    </p>
-
-                    <ul class="space-y-3 text-sm text-slate-300 font-medium" aria-label="Core Capabilities">
-                        <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-square-terminal text-accentCyan w-4 text-center"></i>
-                            Robust architectural execution across C++, Python, Dart (Flutter), and cloud tech.
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-brain-circuit text-accentOrange w-4 text-center"></i>
-                            End-to-end MVP execution incorporating on-device Computer Vision & advanced Rest APIs.
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-wand-magic-sparkles text-accentAmber w-4 text-center"></i>
-                            Dedicated attention to user mental models, cognitive load reduction, and usability testing.
-                        </li>
-                    </ul>
-
-                    <div class="flex flex-wrap gap-4 pt-4">
-                        <a href="#projects" class="px-7 py-4 rounded-xl font-display font-bold text-sm tracking-wide text-darkbg bg-gradient-to-r from-accentCyan to-blue-400 hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] transition-all duration-300 transform hover:-translate-y-0.5">
-                            View My Projects
-                        </a>
-                        <a href="#contact" class="px-7 py-4 rounded-xl font-display font-bold text-sm tracking-wide border border-gray-700 bg-cardbg hover:bg-gray-800/40 hover:border-slate-400 text-white transition-all duration-300">
-                            Contact Me
-                        </a>
-                        <a href="#" class="px-5 py-4 rounded-xl font-display font-bold text-sm tracking-wide text-accentAmber hover:text-white transition-colors duration-200 flex items-center gap-2" download>
-                            <i class="fa-solid fa-file-arrow-down"></i> Download CV (.PDF)
-                        </a>
-                    </div>
-
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-gray-800/80 mt-6">
-                        <div class="flex flex-col">
-                            <span class="text-3xl font-extrabold font-display text-white">6+</span>
-                            <span class="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-1">Engineered MVPs</span>
-                        </div>
-                        <div class="flex flex-col">
-                            <span class="text-3xl font-extrabold font-display text-accentOrange">4</span>
-                            <span class="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-1">Tech Awards Won</span>
-                        </div>
-                        <div class="flex flex-col">
-                            <span class="text-3xl font-extrabold font-display text-accentCyan">3.54<span class="text-sm font-normal text-slate-500">/4.0</span></span>
-                            <span class="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-1">Current cumulative GPA</span>
-                        </div>
-                        <div class="flex flex-col">
-                            <span class="text-3xl font-extrabold font-display text-white">UII</span>
-                            <span class="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-1">Technical Internship</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-5 flex justify-center relative">
-                    <div class="w-72 h-72 sm:w-85 sm:h-85 lg:w-96 lg:h-96 glow-card bg-cardbg rounded-[2.5rem] p-3 border border-gray-800/60 shadow-2xl relative overflow-hidden group">
-                        <img src="https://avatars.githubusercontent.com/u/231724115?s=400&u=9d6c976419f20015002fc7369863eaa93bbe9c7c&v=4" alt="Tran Trong Nguyen Portrait" class="w-full h-full object-cover rounded-[2rem] filter grayscale group-hover:grayscale-0 transition-all duration-700 ease-out">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-darkbg via-transparent to-transparent h-1/3 opacity-80"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="py-24 border-t border-gray-900">
-            <div class="max-w-3xl mx-auto text-center space-y-6">
-                <span class="text-xs font-bold tracking-[0.25em] text-accentOrange uppercase font-display block">Perspective</span>
-                <h2 class="text-3xl font-bold font-display text-white tracking-tight">About Me</h2>
-                <p class="text-slate-400 text-base leading-relaxed text-justify md:text-center">
-                    Enrolled within the elite <span class="text-slate-200 font-semibold">Technology and Innovation cohort at UEH</span>, my developer ethos centers entirely on avoiding standard templates and building tech through pure structural logic. I treat code as the machinery and HCI as the ergonomics—both are vital to solve real world challenges. With practical implementation experience in fast-paced innovation laboratories, I am looking to grow within cross-functional global ecosystems that value clean engineering and rigorous system execution.
+    <main class="page" id="main">
+        <section class="hero" id="top">
+            <div>
+                <p class="eyebrow">Software engineering + product evidence</p>
+                <h1>Building AI, mobile, and HCI products with proof you can inspect.</h1>
+                <p class="lead">
+                    I am a Technology and Innovation student at UEH focused on turning university projects into usable systems:
+                    Flutter apps, computer-vision workflows, research prototypes, and product strategy case studies.
                 </p>
+
+                <div class="hero-actions" aria-label="Portfolio actions">
+                    <a class="button primary" href="#evidence"><i class="fa-solid fa-play"></i> View Demos</a>
+                    <a class="button" href="https://github.com/anystuf/trantrongnguyen" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub Repo</a>
+                    <a class="button" href="assets/reports/academic-record.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-lines"></i> Academic Record</a>
+                </div>
+
+                <div class="metrics" aria-label="Portfolio highlights">
+                    <div class="metric">
+                        <strong>6+</strong>
+                        <span>MVPs and cases</span>
+                    </div>
+                    <div class="metric">
+                        <strong>2</strong>
+                        <span>Demo videos</span>
+                    </div>
+                    <div class="metric">
+                        <strong>6</strong>
+                        <span>Reports linked</span>
+                    </div>
+                    <div class="metric">
+                        <strong>3.54</strong>
+                        <span>Current GPA / 4.0</span>
+                    </div>
+                </div>
             </div>
+
+            <aside class="hero-proof" aria-label="Identity and evidence summary">
+                <div class="proof-top">
+                    <img class="avatar" src="https://avatars.githubusercontent.com/u/231724115?s=400&u=9d6c976419f20015002fc7369863eaa93bbe9c7c&v=4" alt="Tran Trong Nguyen portrait">
+                    <div>
+                        <p class="eyebrow">Open to international opportunities</p>
+                        <h2>Product-minded software engineer in training.</h2>
+                    </div>
+                </div>
+
+                <div class="proof-list">
+                    <div class="proof-item">
+                        <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+                        <div>
+                            <strong>Mobile app implementation</strong>
+                            <span>Flutter, Dart, Firebase, barcode scanning, API integration, and state tracking.</span>
+                        </div>
+                    </div>
+                    <div class="proof-item">
+                        <i class="fa-solid fa-brain" aria-hidden="true"></i>
+                        <div>
+                            <strong>AI and computer vision</strong>
+                            <span>Pose analysis, meal recognition concepts, model-assisted feedback, and XAI dashboards.</span>
+                        </div>
+                    </div>
+                    <div class="proof-item">
+                        <i class="fa-solid fa-users-gear" aria-hidden="true"></i>
+                        <div>
+                            <strong>Human-centered design</strong>
+                            <span>HCI reports, field research, usability criteria, wireframes, and academic validation.</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
         </section>
 
-        <section id="skills" class="py-24 border-t border-gray-900">
-            <div class="text-center mb-16">
-                <span class="text-xs font-bold tracking-[0.25em] text-accentCyan uppercase font-display block mb-2">Stack Architecture</span>
-                <h2 class="text-3xl font-bold font-display text-white tracking-tight">Technical Capabilities</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="glow-card bg-cardbg border border-cardborder p-6 rounded-2xl flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center border border-gray-800 text-accentCyan text-xl mb-5">
-                            <i class="fa-solid fa-code-branch"></i>
-                        </div>
-                        <h3 class="text-lg font-bold font-display text-white mb-3">Programming</h3>
-                        <p class="text-xs text-slate-500 mb-4 leading-relaxed">Languages leveraged for scalable microservices and complex computing algorithms.</p>
-                    </div>
-                    <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800/60">
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">C++ (Advanced)</span>
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">Python</span>
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">Dart</span>
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">JavaScript</span>
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">SQL</span>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-cardbg border border-cardborder p-6 rounded-2xl flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center border border-gray-800 text-accentOrange text-xl mb-5">
-                            <i class="fa-solid fa-cubes"></i>
-                        </div>
-                        <h3 class="text-lg font-bold font-display text-white mb-3">Frameworks & Tools</h3>
-                        <p class="text-xs text-slate-500 mb-4 leading-relaxed">DevOps, databases, and structural environments utilized to accelerate lifecycle pipelines.</p>
-                    </div>
-                    <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800/60">
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">Flutter</span>
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">Firebase</span>
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">Git / GitHub</span>
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">Android Studio</span>
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">VS Code</span>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-cardbg border border-cardborder p-6 rounded-2xl flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center border border-gray-800 text-accentAmber text-xl mb-5">
-                            <i class="fa-solid fa-bezier-curve"></i>
-                        </div>
-                        <h3 class="text-lg font-bold font-display text-white mb-3">Product / HCI</h3>
-                        <p class="text-xs text-slate-500 mb-4 leading-relaxed">User modeling frameworks implemented to avoid interaction friction points.</p>
-                    </div>
-                    <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800/60">
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">HCI Architecture</span>
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">User Flow Mapping</span>
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">Usability Testing</span>
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">Prototyping</span>
-                    </div>
-                </div>
-
-                <div class="glow-card bg-cardbg border border-cardborder p-6 rounded-2xl flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center border border-gray-800 text-emerald-400 text-xl mb-5">
-                            <i class="fa-solid fa-microchip"></i>
-                        </div>
-                        <h3 class="text-lg font-bold font-display text-white mb-3">Data / AI Integration</h3>
-                        <p class="text-xs text-slate-500 mb-4 leading-relaxed">Connecting application logic with predictive models and cloud matrix points.</p>
-                    </div>
-                    <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800/60">
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">API Optimization</span>
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">Gemini/LLM Connect</span>
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">Data Visualization</span>
-                        <span class="px-2.5 py-1 bg-slate-900 border border-gray-800 rounded-md text-xs font-semibold text-slate-300">XAI Protocols</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="py-24 border-t border-t border-gray-900">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+        <section class="section" id="projects">
+            <div class="section-head">
                 <div>
-                    <span class="text-xs font-bold tracking-[0.25em] text-accentOrange uppercase font-display block mb-2">Production Repository</span>
-                    <h2 class="text-3xl font-bold font-display text-white tracking-tight">Selected MVPs & Case Studies</h2>
+                    <p class="eyebrow">Selected work</p>
+                    <h2>Project cards with visible artifacts</h2>
+                    <p class="section-copy">Each card now links to a demo, report, source context, or live system so recruiters can verify the work instead of only reading claims.</p>
                 </div>
-                
-                <div class="flex flex-wrap gap-2 p-1.5 bg-slate-950 border border-gray-800 rounded-xl" role="tablist" aria-label="Filter Projects Repository">
-                    <button class="px-4 py-2 text-xs font-bold font-display uppercase tracking-wider rounded-lg bg-gray-800 text-white transition-all duration-200" role="tab" aria-selected="true" data-filter="all">All Specs</button>
-                    <button class="px-4 py-2 text-xs font-bold font-display uppercase tracking-wider rounded-lg text-slate-400 hover:text-white transition-all duration-200" role="tab" aria-selected="false" data-filter="ai-web">AI & Web</button>
-                    <button class="px-4 py-2 text-xs font-bold font-display uppercase tracking-wider rounded-lg text-slate-400 hover:text-white transition-all duration-200" role="tab" aria-selected="false" data-filter="mobile-iot">Mobile & IoT</button>
-                    <button class="px-4 py-2 text-xs font-bold font-display uppercase tracking-wider rounded-lg text-slate-400 hover:text-white transition-all duration-200" role="tab" aria-selected="false" data-filter="hci-strategy">HCI & Strategy</button>
-                </div>
+                <a class="button small" href="#evidence"><i class="fa-solid fa-folder-open"></i> Evidence Library</a>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
-                
-                <div class="project-card glow-card bg-cardbg border border-cardborder rounded-2xl overflow-hidden flex flex-col justify-between p-6" data-category="ai-web">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-bold tracking-widest uppercase font-display px-2.5 py-1 rounded border border-accentCyan/20 bg-accentCyan/5 text-accentCyan">Research Web Platform</span>
-                            <span class="text-xs font-semibold text-slate-500">Live Product</span>
-                        </div>
-                        <h3 class="text-xl font-bold font-display text-white mb-2">ESP-XAI Writing Platform</h3>
-                        <p class="text-xs font-semibold text-slate-400 mb-1">Role: Frontend & AI Integration Developer</p>
-                        <p class="text-sm text-slate-400 mt-3 mb-6 leading-relaxed">Responsive AI-driven evaluation ecosystem tailored for VSTEP aligned automated score generation.</p>
-                        <ul class="text-xs space-y-2 text-slate-300 border-l border-gray-800 pl-4 mb-6">
-                            <li>• Implemented Cloud Firebase Functions mapped directly via Gemini API.</li>
-                            <li>• Crafted XAI dashboards showing transparent black-box model explanations.</li>
-                            <li>• Locked access via whitelisted email domains, secure authentication, and password resets.</li>
+            <div class="grid three">
+                <article class="card">
+                    <div class="media-frame">
+                        <video controls muted playsinline preload="metadata" src="assets/videos/nutrio-demo-scan.mp4"></video>
+                    </div>
+                    <div class="card-body">
+                        <h3>Nutrio App</h3>
+                        <p>Android nutrition tracker with meal recognition flow, barcode scanning, Firebase-backed user state, and nutrition API integration.</p>
+                        <ul class="evidence-list">
+                            <li><i class="fa-solid fa-check"></i><span>Embedded local demo video from the project folder.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Project report attached as PDF evidence.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Large source archive kept out of the page for performance.</span></li>
                         </ul>
-                    </div>
-                    <div>
-                        <div class="flex flex-wrap gap-1.5 mb-5">
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">Vanilla JS</span>
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">Firebase Functions</span>
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">Gemini API</span>
+                        <div class="tag-row">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">REST APIs</span>
+                            <span class="tag">Computer Vision</span>
                         </div>
-                        <a href="https://anystuf.github.io/anhthuhoang_anystuff/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold font-display tracking-wider text-accentCyan hover:text-white transition-colors">
-                            Launch Live System <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                        </a>
+                        <div class="card-actions">
+                            <a class="button small" href="assets/reports/nutrio-report.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i> Report</a>
+                        </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card glow-card bg-cardbg border border-cardborder rounded-2xl overflow-hidden flex flex-col justify-between p-6" data-category="mobile-iot">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-bold tracking-widest uppercase font-display px-2.5 py-1 rounded border border-accentOrange/20 bg-accentOrange/5 text-accentOrange">Mobile MVP App</span>
-                            <span class="text-xs font-semibold text-slate-500">Functional MVP</span>
-                        </div>
-                        <h3 class="text-xl font-bold font-display text-white mb-2">Nutrio App</h3>
-                        <p class="text-xs font-semibold text-slate-400 mb-1">Role: Lead Developer</p>
-                        <p class="text-sm text-slate-400 mt-3 mb-6 leading-relaxed">Intelligent nutrition tracking software engineered for the Android OS ecosystem.</p>
-                        <ul class="text-xs space-y-2 text-slate-300 border-l border-gray-800 pl-4 mb-6">
-                            <li>• Developed automated computer vision image parsing for quick meal recognition.</li>
-                            <li>• Integrated barcode scanners communicating seamlessly with RESTful Edamam APIs.</li>
-                            <li>• Programmed dynamic user state tracking with Firestore security architectures.</li>
+                <article class="card">
+                    <div class="media-frame contain">
+                        <img src="assets/images/aifit-icon.png" alt="AIFit application icon">
+                    </div>
+                    <div class="card-body">
+                        <h3>AIFit Trainer Hub</h3>
+                        <p>Fitness and rehab concept using pose detection, voice feedback, and guided correction loops for user-friendly training support.</p>
+                        <ul class="evidence-list">
+                            <li><i class="fa-solid fa-check"></i><span>Flutter source exists in the university project folder.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Report documents the problem, system, and evaluation.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>App icon included as a local visual artifact.</span></li>
                         </ul>
-                    </div>
-                    <div>
-                        <div class="flex flex-wrap gap-1.5 mb-5">
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">Flutter / Dart</span>
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">Firebase Firestore</span>
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">Edamam REST API</span>
+                        <div class="tag-row">
+                            <span class="tag">Dart</span>
+                            <span class="tag">Pose Detection</span>
+                            <span class="tag">SQLite</span>
+                            <span class="tag">HCI</span>
                         </div>
-                        <span class="text-xs font-bold text-slate-500 cursor-not-allowed inline-flex items-center gap-1.5">
-                            <i class="fa-solid fa-lock text-[10px]"></i> Codebase Proprietary
-                        </span>
+                        <div class="card-actions">
+                            <a class="button small" href="assets/reports/aifit-report.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i> Report</a>
+                            <a class="button small" href="https://github.com/anystuf/trantrongnguyen" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> Repository</a>
+                        </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card glow-card bg-cardbg border border-cardborder rounded-2xl overflow-hidden flex flex-col justify-between p-6" data-category="ai-web">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-bold tracking-widest uppercase font-display px-2.5 py-1 rounded border border-accentAmber/20 bg-accentAmber/5 text-accentAmber">Applied Machine Learning</span>
-                            <span class="text-xs font-semibold text-slate-500">Concept Architecture</span>
+                <article class="card">
+                    <div class="media-frame">
+                        <div class="media-placeholder">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <strong>Smart Library Map</strong>
+                            <p>HCI research, prototype rationale, and navigation-usability documentation.</p>
                         </div>
-                        <h3 class="text-xl font-bold font-display text-white mb-2">AIFit Trainer Hub</h3>
-                        <p class="text-xs font-semibold text-slate-400 mb-1">Role: Product & Technical Contributor</p>
-                        <p class="text-sm text-slate-400 mt-3 mb-6 leading-relaxed">Biomechanics computing system optimizing physical rehabilitation tracking workflows.</p>
-                        <ul class="text-xs space-y-2 text-slate-300 border-l border-gray-800 pl-4 mb-6">
-                            <li>• Designed skeletal node mapping architectures for posture assessment.</li>
-                            <li>• Optimized execution logic utilizing First Principles to reduce user cognitive load.</li>
-                            <li>• Modeled instant voice and visual overlay feedback loops following strict HCI criteria.</li>
+                    </div>
+                    <div class="card-body">
+                        <h3>Smart Library Map</h3>
+                        <p>Research-led navigation concept for reducing confusion inside library spaces through clearer routes and interaction patterns.</p>
+                        <ul class="evidence-list">
+                            <li><i class="fa-solid fa-check"></i><span>Final HCI group report is linked for review.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Focuses on user flows, friction points, and usability testing.</span></li>
+                            <li><i class="fa-solid fa-check"></i><span>Shows product thinking beyond implementation.</span></li>
                         </ul>
-                    </div>
-                    <div>
-                        <div class="flex flex-wrap gap-1.5 mb-5">
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">Computer Vision</span>
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">Python Logic</span>
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">HCI Frameworks</span>
+                        <div class="tag-row">
+                            <span class="tag">User Research</span>
+                            <span class="tag">Wireframes</span>
+                            <span class="tag">Usability</span>
                         </div>
-                        <span class="text-xs font-bold text-slate-400 inline-flex items-center gap-1">
-                            Documentation Encrypted
-                        </span>
+                        <div class="card-actions">
+                            <a class="button small" href="assets/reports/hci-final-report.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i> HCI Report</a>
+                        </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card glow-card bg-cardbg border border-cardborder rounded-2xl overflow-hidden flex flex-col justify-between p-6" data-category="hci-strategy">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-bold tracking-widest uppercase font-display px-2.5 py-1 rounded border border-purple-400/20 bg-purple-400/5 text-purple-400">HCI Design Study</span>
-                            <span class="text-xs font-semibold text-slate-500">Research System</span>
-                        </div>
-                        <h3 class="text-xl font-bold font-display text-white mb-2">Smart Library Map</h3>
-                        <p class="text-xs font-semibold text-slate-400 mb-1">Role: UX Research & Prototype Lead</p>
-                        <p class="text-sm text-slate-400 mt-3 mb-6 leading-relaxed">Interaction redesign targeting spatial orientation and routing optimization inside complexes.</p>
-                        <ul class="text-xs space-y-2 text-slate-300 border-l border-gray-800 pl-4 mb-6">
-                            <li>• Executed rigorous baseline ethnographic research and spatial usability tracking.</li>
-                            <li>• Formulated functional interface wireframes built upon clear human spatial tracking rules.</li>
-                            <li>• Achieved verified data drops across navigation mistakes via targeted field tests.</li>
-                        </ul>
+                <article class="card">
+                    <div class="media-frame">
+                        <video controls muted playsinline preload="metadata" src="assets/videos/nutrio-demo-dashboard.mp4"></video>
                     </div>
-                    <div>
-                        <div class="flex flex-wrap gap-1.5 mb-5">
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">User Research</span>
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">Figma Prototype</span>
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">Usability Auditing</span>
+                    <div class="card-body">
+                        <h3>Nutrio Dashboard Flow</h3>
+                        <p>Second demo artifact showing the app flow beyond the scan screen, useful for proving interaction continuity and feature depth.</p>
+                        <div class="tag-row">
+                            <span class="tag">Mobile UX</span>
+                            <span class="tag">Tracking Flow</span>
+                            <span class="tag">Demo Artifact</span>
                         </div>
-                        <span class="text-xs font-bold text-slate-500 inline-flex items-center gap-1">
-                            Academic Case File Published
-                        </span>
+                        <div class="card-actions">
+                            <a class="button small" href="assets/videos/nutrio-demo-dashboard.mp4" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-video"></i> Open Video</a>
+                        </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card glow-card bg-cardbg border border-cardborder rounded-2xl overflow-hidden flex flex-col justify-between p-6" data-category="mobile-iot">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-bold tracking-widest uppercase font-display px-2.5 py-1 rounded border border-emerald-400/20 bg-emerald-400/5 text-emerald-400">Spatial Interactive</span>
-                            <span class="text-xs font-semibold text-slate-500">Live Demo</span>
+                <article class="card">
+                    <div class="media-frame">
+                        <div class="media-placeholder">
+                            <i class="fa-solid fa-seedling"></i>
+                            <strong>Nursery Seeding Machine</strong>
+                            <p>Innovation management proposal and technical-commercial framing.</p>
                         </div>
-                        <h3 class="text-xl font-bold font-display text-white mb-2">UEH Genesis Experience</h3>
-                        <p class="text-xs font-semibold text-slate-400 mb-1">Role: Product & Technical Contributor</p>
-                        <p class="text-sm text-slate-400 mt-3 mb-6 leading-relaxed">Augmented Reality spatial history platform gamifying institutional heritage sites.</p>
-                        <ul class="text-xs space-y-2 text-slate-300 border-l border-gray-800 pl-4 mb-6">
-                            <li>• Developed high-fidelity asset rendering trees inside Unity and Vuforia.</li>
-                            <li>• Modeled responsive low-poly models using Blender optimized for mobile rendering loops.</li>
-                            <li>• Constructed synchronized physical triggers communicating directly via system hardware nodes.</li>
-                        </ul>
                     </div>
-                    <div>
-                        <div class="flex flex-wrap gap-1.5 mb-5">
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">Unity / Vuforia</span>
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">Blender 3D</span>
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">ESP32 Integration</span>
+                    <div class="card-body">
+                        <h3>Nursery Seeding Machine</h3>
+                        <p>Innovation management case study for agricultural automation, including problem framing, solution design, and market reasoning.</p>
+                        <div class="tag-row">
+                            <span class="tag">Innovation</span>
+                            <span class="tag">AgriTech</span>
+                            <span class="tag">Business Case</span>
                         </div>
-                        <span class="text-xs font-bold text-slate-400 inline-flex items-center gap-1">
-                            Project Package Complete
-                        </span>
+                        <div class="card-actions">
+                            <a class="button small" href="assets/reports/innovation-report.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i> Report</a>
+                        </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card glow-card bg-cardbg border border-cardborder rounded-2xl overflow-hidden flex flex-col justify-between p-6" data-category="hci-strategy">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-bold tracking-widest uppercase font-display px-2.5 py-1 rounded border border-rose-400/20 bg-rose-400/5 text-rose-400">Enterprise Solution</span>
-                            <span class="text-xs font-semibold text-slate-500">Strategic Case</span>
+                <article class="card">
+                    <div class="media-frame">
+                        <div class="media-placeholder">
+                            <i class="fa-solid fa-cube"></i>
+                            <strong>UEH Genesis</strong>
+                            <p>Spatial, AR-style product concept for campus heritage storytelling.</p>
                         </div>
-                        <h3 class="text-xl font-bold font-display text-white mb-2">An Khang Strategy Matrix</h3>
-                        <p class="text-xs font-semibold text-slate-400 mb-1">Role: Solution Architect / Product Thinker</p>
-                        <p class="text-sm text-slate-400 mt-3 mb-6 leading-relaxed">Digital transformation plan upgrading traditional retail pharmacy operations.</p>
-                        <ul class="text-xs space-y-2 text-slate-300 border-l border-gray-800 pl-4 mb-6">
-                            <li>• Formulated custom customer journey matrices tracking touchpoint friction.</li>
-                            <li>• Architected integrated CRM structures linking remote user health nodes.</li>
-                            <li>• Structured unified executive metrics dashboards alongside clear execution timelines.</li>
-                        </ul>
                     </div>
-                    <div>
-                        <div class="flex flex-wrap gap-1.5 mb-5">
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">CRM Topology</span>
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">Architecture Mapping</span>
-                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-slate-400">Roadmap Design</span>
+                    <div class="card-body">
+                        <h3>UEH Genesis Experience</h3>
+                        <p>Team concept combining spatial storytelling, interactive heritage content, and product presentation materials.</p>
+                        <div class="tag-row">
+                            <span class="tag">AR Concept</span>
+                            <span class="tag">Unity</span>
+                            <span class="tag">Product Story</span>
                         </div>
-                        <span class="text-xs font-bold text-slate-500 inline-flex items-center gap-1">
-                            Corporate Presentation Sealed
-                        </span>
+                        <div class="card-actions">
+                            <a class="button small" href="assets/reports/ueh-genesis-report.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i> Report</a>
+                        </div>
                     </div>
-                </div>
-
+                </article>
             </div>
         </section>
 
-        <section id="education" class="py-24 border-t border-gray-900">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                <div class="lg:col-span-4">
-                    <span class="text-xs font-bold tracking-[0.25em] text-accentAmber uppercase font-display block mb-2">Validation</span>
-                    <h2 class="text-3xl font-bold font-display text-white tracking-tight mb-4">Education</h2>
-                    <div class="bg-cardbg border border-cardborder p-6 rounded-2xl mt-6">
-                        <h3 class="text-lg font-bold font-display text-white">University of Economics Ho Chi Minh City (UEH)</h3>
-                        <p class="text-sm text-accentCyan font-medium mt-1">B.S. in Technology and Innovation</p>
-                        <p class="text-xs text-slate-500 mt-4 font-mono">Expected Graduation: 2027</p>
-                        <div class="mt-6 pt-6 border-t border-gray-800 flex items-baseline gap-2">
-                            <span class="text-4xl font-extrabold text-white font-display">3.54</span>
-                            <span class="text-sm font-semibold text-slate-500 uppercase tracking-wider">/ 4.0 Cumulative GPA</span>
-                        </div>
-                    </div>
+        <section class="section" id="evidence">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Evidence library</p>
+                    <h2>Videos, reports, and academic proof</h2>
+                    <p class="section-copy">These are local files copied into the portfolio folder so the hosted site can serve the artifacts directly.</p>
                 </div>
+            </div>
 
-                <div class="lg:col-span-8">
-                    <h3 class="text-xs font-bold tracking-[0.15em] text-slate-500 uppercase font-display mb-6">Selected Elite Coursework & Performance Metrics</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        
-                        <div class="flex justify-between items-center p-4 bg-slate-950 border border-gray-800/80 rounded-xl">
-                            <span class="text-sm font-medium text-slate-300">Technological Innovation</span>
-                            <span class="text-sm font-bold font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">10.0</span>
-                        </div>
-                        <div class="flex justify-between items-center p-4 bg-slate-950 border border-gray-800/80 rounded-xl">
-                            <span class="text-sm font-medium text-slate-300">AI Project Execution</span>
-                            <span class="text-sm font-bold font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">9.9</span>
-                        </div>
-                        <div class="flex justify-between items-center p-4 bg-slate-950 border border-gray-800/80 rounded-xl">
-                            <span class="text-sm font-medium text-slate-300">Advanced Data Science</span>
-                            <span class="text-sm font-bold font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">9.5</span>
-                        </div>
-                        <div class="flex justify-between items-center p-4 bg-slate-950 border border-gray-800/80 rounded-xl">
-                            <span class="text-sm font-medium text-slate-300">Technology Management</span>
-                            <span class="text-sm font-bold font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">9.5</span>
-                        </div>
-                        <div class="flex justify-between items-center p-4 bg-slate-950 border border-gray-800/80 rounded-xl">
-                            <span class="text-sm font-medium text-slate-300">Human-Computer Interaction</span>
-                            <span class="text-sm font-bold font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">9.0</span>
-                        </div>
-                        <div class="flex justify-between items-center p-4 bg-slate-950 border border-gray-800/80 rounded-xl">
-                            <span class="text-sm font-medium text-slate-300">Applied Statistics</span>
-                            <span class="text-sm font-bold font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">9.0</span>
-                        </div>
-                        <div class="flex justify-between items-center p-4 bg-slate-950 border border-gray-800/80 rounded-xl">
-                            <span class="text-sm font-medium text-slate-300">AI in Business Systems</span>
-                            <span class="text-sm font-bold font-mono px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">8.9</span>
-                        </div>
-                        <div class="flex justify-between items-center p-4 bg-slate-950 border border-gray-800/80 rounded-xl">
-                            <span class="text-sm font-medium text-slate-300">Data Visualization Topology</span>
-                            <span class="text-sm font-bold font-mono px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">8.8</span>
-                        </div>
-                        <div class="flex justify-between items-center p-4 bg-slate-950 border border-gray-800/80 rounded-xl sm:col-span-2">
-                            <span class="text-sm font-medium text-slate-300">Mobile Application Engineering</span>
-                            <span class="text-sm font-bold font-mono px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">8.8</span>
-                        </div>
-
+            <div class="grid two" aria-label="Demo videos">
+                <article class="card">
+                    <div class="media-frame">
+                        <video controls muted playsinline preload="metadata" src="assets/videos/nutrio-demo-scan.mp4"></video>
                     </div>
-                </div>
+                    <div class="card-body">
+                        <h3>Nutrio demo: scan and recognition flow</h3>
+                        <p>Proof artifact for the mobile app workflow.</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="media-frame">
+                        <video controls muted playsinline preload="metadata" src="assets/videos/nutrio-demo-dashboard.mp4"></video>
+                    </div>
+                    <div class="card-body">
+                        <h3>Nutrio demo: dashboard and tracking flow</h3>
+                        <p>Second proof artifact showing a broader app journey.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="grid three" style="margin-top: 1rem;" aria-label="Report links">
+                <article class="card report-card">
+                    <div class="report-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div>
+                        <strong>Nutrio Software Report</strong>
+                        <span>Mobile nutrition project documentation.</span>
+                        <a href="assets/reports/nutrio-report.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+                    </div>
+                </article>
+
+                <article class="card report-card">
+                    <div class="report-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div>
+                        <strong>AIFit Report</strong>
+                        <span>AI fitness trainer project documentation.</span>
+                        <a href="assets/reports/aifit-report.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+                    </div>
+                </article>
+
+                <article class="card report-card">
+                    <div class="report-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div>
+                        <strong>HCI Final Report</strong>
+                        <span>Human-computer interaction research proof.</span>
+                        <a href="assets/reports/hci-final-report.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+                    </div>
+                </article>
+
+                <article class="card report-card">
+                    <div class="report-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div>
+                        <strong>Innovation Management</strong>
+                        <span>Nursery seeding machine case study.</span>
+                        <a href="assets/reports/innovation-report.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+                    </div>
+                </article>
+
+                <article class="card report-card">
+                    <div class="report-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div>
+                        <strong>UEH Genesis</strong>
+                        <span>Spatial product concept report.</span>
+                        <a href="assets/reports/ueh-genesis-report.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+                    </div>
+                </article>
+
+                <article class="card report-card">
+                    <div class="report-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div>
+                        <strong>Academic Record</strong>
+                        <span>Transcript-style academic validation file.</span>
+                        <a href="assets/reports/academic-record.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <section id="achievements" class="py-24 border-t border-gray-900">
-            <div class="text-center mb-16">
-                <span class="text-xs font-bold tracking-[0.25em] text-accentCyan uppercase font-display block mb-2">Track Record</span>
-                <h2 class="text-3xl font-bold font-display text-white tracking-tight">Verified Accolades</h2>
+        <section class="section" id="skills">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Capabilities</p>
+                    <h2>Technical stack</h2>
+                    <p class="section-copy">A compact view of the tools used across the evidence above.</p>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-                
-                <div class="flex gap-5 p-6 bg-cardbg border border-cardborder rounded-2xl feature-box items-start">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-accentAmber text-xl flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(251,191,36,0.1)]">
-                        <i class="fa-solid fa-trophy"></i>
+            <div class="grid three">
+                <article class="card card-body">
+                    <h3>Engineering</h3>
+                    <p>C++, Python, Dart, JavaScript, SQL, data structures, REST APIs, and local-first app logic.</p>
+                    <div class="tag-row">
+                        <span class="tag">C++</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Dart</span>
+                        <span class="tag">JavaScript</span>
                     </div>
-                    <div>
-                        <h3 class="text-lg font-bold font-display text-white">First Prize – AI Agriculture Competition</h3>
-                        <p class="text-xs font-medium text-accentCyan uppercase tracking-wider mt-0.5 font-mono">FUNiX & Deakin University</p>
-                        <p class="text-sm text-slate-400 mt-2 leading-relaxed">Honored for pioneering intelligent technical logic models engineered to sustain remote plant environments under sudden weather variability spikes.</p>
-                    </div>
-                </div>
+                </article>
 
-                <div class="flex gap-5 p-6 bg-cardbg border border-cardborder rounded-2xl feature-box items-start">
-                    <div class="w-12 h-12 rounded-xl bg-slate-800 border border-gray-700 text-slate-300 text-xl flex items-center justify-center shrink-0">
-                        <i class="fa-solid fa-medal"></i>
+                <article class="card card-body">
+                    <h3>Mobile and Cloud</h3>
+                    <p>Flutter apps, Firebase authentication, Firestore, app state, camera-based flows, and Android delivery.</p>
+                    <div class="tag-row">
+                        <span class="tag">Flutter</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">Android</span>
+                        <span class="tag">APIs</span>
                     </div>
-                    <div>
-                        <h3 class="text-lg font-bold font-display text-white">Second Prize – Provincial Science & Engineering Competition</h3>
-                        <p class="text-xs font-medium text-slate-500 uppercase tracking-wider mt-0.5 font-mono">Regional Science Board</p>
-                        <p class="text-sm text-slate-400 mt-2 leading-relaxed">Awarded for high-accuracy microcontroller implementation reading environment signals on rapid feedback matrices.</p>
-                    </div>
-                </div>
+                </article>
 
-                <div class="flex gap-5 p-6 bg-cardbg border border-cardborder rounded-2xl feature-box items-start">
-                    <div class="w-12 h-12 rounded-xl bg-slate-800 border border-gray-700 text-slate-300 text-xl flex items-center justify-center shrink-0">
-                        <i class="fa-solid fa-award"></i>
+                <article class="card card-body">
+                    <h3>Product and HCI</h3>
+                    <p>User research, interaction mapping, accessibility basics, usability analysis, product storytelling, and report writing.</p>
+                    <div class="tag-row">
+                        <span class="tag">HCI</span>
+                        <span class="tag">UX Research</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">Strategy</span>
                     </div>
-                    <div>
-                        <h3 class="text-lg font-bold font-display text-white">Third Prize – National Young Informatics Competition</h3>
-                        <p class="text-xs font-medium text-slate-500 uppercase tracking-wider mt-0.5 font-mono">National Computing Union</p>
-                        <p class="text-sm text-slate-400 mt-2 leading-relaxed">Recognized nationally for system architecture design mapping complex physical signals cleanly into accessible tracking dashboards.</p>
-                    </div>
-                </div>
-
-                <div class="flex gap-5 p-6 bg-cardbg border border-cardborder rounded-2xl feature-box items-start">
-                    <div class="w-12 h-12 rounded-xl bg-slate-800 border border-gray-700 text-slate-300 text-xl flex items-center justify-center shrink-0">
-                        <i class="fa-solid fa-laptop-code"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold font-display text-white">Third Prize – Provincial Programming Olympiad</h3>
-                        <p class="text-xs font-medium text-slate-500 uppercase tracking-wider mt-0.5 font-mono">Olympic Committee</p>
-                        <p class="text-sm text-slate-400 mt-2 leading-relaxed">Ranked among top competitors for algorithmic logic optimization, automated mathematical iteration, and error parsing control.</p>
-                    </div>
-                </div>
-
+                </article>
             </div>
         </section>
 
-        <section id="contact" class="py-24 border-t border-gray-900 mb-12">
-            <div class="bg-gradient-to-br from-cardbg to-slate-950 border border-cardborder rounded-3xl p-8 md:p-12 max-w-4xl mx-auto text-center relative overflow-hidden">
-                <div class="absolute -top-24 -right-24 w-48 h-48 bg-accentOrange/10 blur-[80px] pointer-events-none"></div>
-                
-                <span class="text-xs font-bold tracking-[0.25em] text-accentOrange uppercase font-display block mb-2">Secure Connection</span>
-                <h2 class="text-3xl font-bold font-display text-white tracking-tight mb-4">Let's Build Something Impactful</h2>
-                <p class="text-slate-400 text-base max-w-xl mx-auto mb-10 leading-relaxed">
-                    Whether you are looking to integrate specialized AI logic, construct a responsive mobile application, or optimize system usability architectures—let's open a direct line.
-                </p>
-
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto mb-8 font-display text-xs font-bold uppercase tracking-wider">
-                    <a href="mailto:trantrongnguyenhg@gmail.com" class="p-4 rounded-xl bg-slate-900/60 border border-gray-800/80 hover:border-accentCyan text-slate-300 hover:text-white transition-all flex flex-col items-center gap-2 group">
-                        <i class="fa-regular fa-envelope text-lg text-accentCyan group-hover:scale-110 transition-transform"></i> Email
-                    </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/60 border border-gray-800/80 hover:border-accentOrange text-slate-300 hover:text-white transition-all flex flex-col items-center gap-2 group">
-                        <i class="fa-brands fa-github text-lg text-accentOrange group-hover:scale-110 transition-transform"></i> GitHub
-                    </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/60 border border-gray-800/80 hover:border-accentAmber text-slate-300 hover:text-white transition-all flex flex-col items-center gap-2 group">
-                        <i class="fa-brands fa-linkedin-in text-lg text-accentAmber group-hover:scale-110 transition-transform"></i> LinkedIn
-                    </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/60 border border-gray-800/80 hover:border-emerald-400 text-slate-300 hover:text-white transition-all flex flex-col items-center gap-2 group">
-                        <i class="fa-solid fa-address-card text-lg text-emerald-400 group-hover:scale-110 transition-transform"></i> Resume
-                    </a>
+        <section class="section" id="education">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Education and validation</p>
+                    <h2>UEH Technology and Innovation</h2>
+                    <p class="section-copy">Bachelor's program at University of Economics Ho Chi Minh City, expected graduation 2027.</p>
                 </div>
+                <a class="button small" href="assets/reports/academic-record.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-graduation-cap"></i> Academic Record</a>
+            </div>
 
-                <div class="pt-6 border-t border-gray-900 inline-block">
-                    <p class="text-xs font-mono text-slate-500">Direct Terminal: <span class="text-slate-300 select-all">+84 941 951 799</span></p>
-                </div>
+            <div class="grid two">
+                <article class="card card-body">
+                    <h3>Current GPA</h3>
+                    <p><strong style="font-size: 3rem; color: var(--text); line-height: 1;">3.54</strong> / 4.0 cumulative GPA.</p>
+                    <div class="tag-row">
+                        <span class="tag">Technology Innovation</span>
+                        <span class="tag">AI Project</span>
+                        <span class="tag">HCI</span>
+                    </div>
+                </article>
+
+                <article class="card card-body">
+                    <h3>Selected performance</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <strong>Technological Innovation: 10.0</strong>
+                            <span>Strongest validation for product and innovation work.</span>
+                        </div>
+                        <div class="timeline-item">
+                            <strong>AI Project Execution: 9.9</strong>
+                            <span>Evidence-aligned AI project work.</span>
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Human-Computer Interaction: 9.0</strong>
+                            <span>Supports the usability-focused project framing.</span>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
+        <section class="section" id="contact">
+            <div class="contact">
+                <div>
+                    <p class="eyebrow">Contact</p>
+                    <h2>Let's build something useful.</h2>
+                    <p class="section-copy">I am open to internships, international opportunities, and engineering roles where product thinking matters.</p>
+                </div>
+                <div class="hero-actions" style="margin-top: 0;">
+                    <a class="button primary" href="mailto:trantrongnguyenhg@gmail.com"><i class="fa-regular fa-envelope"></i> Email</a>
+                    <a class="button" href="https://github.com/anystuf" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a class="button" href="tel:+84941951799"><i class="fa-solid fa-phone"></i> +84 941 951 799</a>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="bg-cardbg border-t border-gray-900 py-12 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 text-xs font-semibold text-slate-500 tracking-wider uppercase font-display">
-            <p>&copy; 2026 Tran Trong Nguyen. All Engineering Rights Reserved.</p>
-            <p class="flex items-center gap-2">
-                <i class="fa-solid fa-universal-access text-accentCyan"></i> Built in compliance with HCI criteria & WCAG Contrast Metrics
-            </p>
-        </div>
+    <footer class="footer">
+        <span>&copy; 2026 Tran Trong Nguyen.</span>
+        <span>Static portfolio with local video, image, and PDF evidence.</span>
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            
-            // 1. Mobile Menu Open/Close Toggler Engine
-            const mobileMenuBtn = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const hamburgerIcon = document.getElementById('hamburger-icon');
+        const menuButton = document.getElementById("menuButton");
+        const navLinks = document.getElementById("navLinks");
 
-            mobileMenuBtn.addEventListener('click', function() {
-                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-                mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
-                mobileMenu.classList.toggle('hidden');
-                
-                // Animate hamburger to close X shape natively
-                if(!isExpanded) {
-                    hamburgerIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
-                } else {
-                    hamburgerIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-                }
+        menuButton.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("open");
+            menuButton.setAttribute("aria-expanded", String(isOpen));
+            menuButton.innerHTML = isOpen
+                ? '<i class="fa-solid fa-xmark"></i>'
+                : '<i class="fa-solid fa-bars"></i>';
+        });
+
+        navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("open");
+                menuButton.setAttribute("aria-expanded", "false");
+                menuButton.innerHTML = '<i class="fa-solid fa-bars"></i>';
             });
-
-            // Close mobile menu container automatically upon sub-link selection clicks
-            const mobileLinks = mobileMenu.querySelectorAll('a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    hamburgerIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-                });
-            });
-
-            // 2. High-Performance Repository Project Filters Engine
-            const filterButtons = document.querySelectorAll('[role="tab"][data-filter]');
-            const projectCards = document.querySelectorAll('#projects-grid .project-card');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Update aria-selections and highlight states across nodes
-                    filterButtons.forEach(btn => {
-                        btn.setAttribute('aria-selected', 'false');
-                        btn.classList.remove('bg-gray-800', 'text-white');
-                        btn.classList.add('text-slate-400');
-                    });
-                    
-                    this.setAttribute('aria-selected', 'true');
-                    this.classList.add('bg-gray-800', 'text-white');
-                    this.classList.remove('text-slate-400');
-
-                    const targetedCategory = this.getAttribute('data-filter');
-
-                    projectCards.forEach(card => {
-                        // Smoothly display or drop cards according to selection
-                        if (targetedCategory === 'all' || card.getAttribute('data-category') === targetedCategory) {
-                            card.style.display = 'flex';
-                            setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'scale(1)'; }, 20);
-                        } else {
-                            card.style.opacity = '0';
-                            card.style.transform = 'scale(0.95)';
-                            setTimeout(() => { card.style.display = 'none'; }, 200);
-                        }
-                    });
-                });
-            });
-
-            // 3. Dynamic Interactive Mouse Glow Borders Engine (HCI Visual Feedback loop)
-            const dynamicGlowCards = document.querySelectorAll('.glow-card');
-            
-            // Bypass processing if user system specifies prefers-reduced-motion to protect performance cycles
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                dynamicGlowCards.forEach(card => {
-                    card.addEventListener('mousemove', function(e) {
-                        const boundRect = this.getBoundingClientRect();
-                        const cursorX = e.clientX - boundRect.left;
-                        const cursorY = e.clientY - boundRect.top;
-                        
-                        // Pass position arrays down to custom background layers dynamically
-                        this.style.setProperty('--cursor-x', `${cursorX}px`);
-                        this.style.setProperty('--cursor-y', `${cursorY}px`);
-                    });
-                });
-            }
         });
     </script>
 </body>
