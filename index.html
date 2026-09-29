@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian - Trần Trọng Nguyễn | Developer & Creative Thinker</title>
+    <meta name="description" content="Portfolio of Trần Trọng Nguyễn, a Technology and Innovation student building AI, mobile, HCI, and product strategy projects with visible evidence.">
+    <meta name="theme-color" content="#101413">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%23c5f277%22/%3E%3Ctext x=%2232%22 y=%2243%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2232%22 font-weight=%22700%22%3EN%3C/text%3E%3C/svg%3E">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #07111f;
+            --panel: #0d1726;
+            --panel-strong: #111f33;
+            --line: #223147;
+            --text: #ecf3ff;
+            --muted: #9cadc4;
+            --soft: #6f8198;
+            --cyan: #4fd1c5;
+            --blue: #60a5fa;
+            --amber: #f6c453;
+            --coral: #fb7185;
+            --green: #7dd3a8;
+            --radius: 8px;
+            --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--text);
+            background:
+                linear-gradient(180deg, rgba(7, 17, 31, 0.92), rgba(7, 17, 31, 0.98)),
+                radial-gradient(circle at 18% 0%, rgba(79, 209, 197, 0.16), transparent 28%),
+                radial-gradient(circle at 85% 8%, rgba(246, 196, 83, 0.12), transparent 25%),
+                #07111f;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            display: block;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 1rem;
+            top: -10rem;
+            z-index: 100;
+            background: var(--text);
+            color: var(--bg);
+            padding: 0.7rem 0.9rem;
+            border-radius: var(--radius);
+            font-weight: 800;
+        }
+
+        .skip-link:focus {
+            top: 1rem;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(7, 17, 31, 0.86);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .brand {
+            font-weight: 900;
+            letter-spacing: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .brand-mark {
+            width: 34px;
+            height: 34px;
+            border: 1px solid rgba(79, 209, 197, 0.45);
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            color: var(--cyan);
+            background: rgba(79, 209, 197, 0.08);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.1rem;
+            align-items: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: var(--text);
+        }
+
+        .menu-button {
+            display: none;
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            width: 42px;
+            height: 42px;
+            cursor: pointer;
+        }
+
+        .page {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 86px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero {
+            padding: 64px 0 72px;
+            min-height: auto;
+            display: grid;
+            grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+            gap: clamp(2.5rem, 7vw, 6rem);
+            align-items: start;
+        }
+
+        .eyebrow {
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0;
+            font-size: 0.78rem;
+            font-weight: 900;
+            margin: 0 0 0.75rem;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.08;
+            margin: 0;
+            letter-spacing: 0;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 5vw, 4.35rem);
+            max-width: 660px;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.3rem);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .lead {
+            margin-top: 1.4rem;
+            color: var(--muted);
+            font-size: clamp(1.02rem, 2vw, 1.2rem);
+            max-width: 680px;
+        }
+
+        .portrait-card {
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+                var(--panel);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            max-width: 380px;
+            width: 100%;
+            align-self: start;
+        }
+
+        .portrait {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            object-position: center top;
+            filter: saturate(0.98) contrast(1.04);
+            background: var(--panel-strong);
+        }
+
+        .portrait-caption {
+            padding: 1rem 1.15rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--muted);
+            font-weight: 800;
+            font-size: 0.88rem;
+        }
+
+        .caption-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: var(--green);
+            box-shadow: 0 0 0 5px rgba(125, 211, 168, 0.12);
+            flex: 0 0 auto;
+        }
+
+        .profile-content {
+            max-width: 700px;
+            padding-top: 0.35rem;
+        }
+
+        .profile-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            min-height: 38px;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid rgba(79, 209, 197, 0.35);
+            background: rgba(79, 209, 197, 0.08);
+            color: var(--cyan);
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.78rem;
+        }
+
+        .profile-subtitle {
+            margin-top: 0.8rem;
+            color: var(--amber);
+            font-size: 1.08rem;
+            font-weight: 900;
+        }
+
+        .profile-text {
+            margin-top: 1.45rem;
+            display: grid;
+            gap: 1rem;
+            color: var(--muted);
+            font-size: 1.05rem;
+            max-width: 620px;
+        }
+
+        .profile-text strong {
+            color: var(--text);
+        }
+
+        .hero-actions,
+        .card-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.7rem;
+        }
+
+        .button {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            padding: 0.75rem 1rem;
+            font-weight: 900;
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.04);
+            transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-1px);
+            border-color: rgba(79, 209, 197, 0.65);
+            background: rgba(79, 209, 197, 0.09);
+        }
+
+        .button.primary {
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            color: #06111f;
+            border-color: transparent;
+        }
+
+        .button.small {
+            min-height: 38px;
+            padding: 0.55rem 0.75rem;
+            font-size: 0.82rem;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.6rem;
+            margin-top: 1.8rem;
+        }
+
+        .metric {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 0.85rem;
+            background: rgba(13, 23, 38, 0.76);
+        }
+
+        .metric strong {
+            display: block;
+            font-size: 1.45rem;
+            line-height: 1;
+        }
+
+        .metric span {
+            color: var(--soft);
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .proof-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.65rem;
+            margin-top: 1rem;
+        }
+
+        .proof-item {
+            display: grid;
+            grid-template-columns: 24px 1fr;
+            gap: 0.6rem;
+            align-items: start;
+            padding: 0.8rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .proof-item i {
+            color: var(--amber);
+            margin-top: 0.2rem;
+        }
+
+        .proof-item strong {
+            display: block;
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+
+        .proof-item span {
+            display: block;
+            color: var(--muted);
+            font-size: 0.82rem;
+            line-height: 1.45;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-copy {
+            color: var(--muted);
+            max-width: 720px;
+            margin-top: 0.9rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .grid.two {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid.three {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin: 0 0 1.2rem;
+        }
+
+        .filter-tab {
+            min-height: 38px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--muted);
+            cursor: pointer;
+            font: inherit;
+            font-size: 0.78rem;
+            font-weight: 900;
+            padding: 0.55rem 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .filter-tab:hover,
+        .filter-tab:focus-visible,
+        .filter-tab.active {
+            border-color: rgba(79, 209, 197, 0.65);
+            color: var(--cyan);
+            background: rgba(79, 209, 197, 0.08);
+        }
+
+        .case-study {
+            border-color: rgba(79, 209, 197, 0.25);
+            background:
+                radial-gradient(circle at top right, rgba(79, 209, 197, 0.09), transparent 38%),
+                rgba(13, 23, 38, 0.84);
+        }
+
+        .case-study-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr);
+            gap: 1.2rem;
+            align-items: start;
+        }
+
+        .case-study-panel {
+            border-left: 1px solid var(--line);
+            padding-left: 1.2rem;
+        }
+
+        .feature-list {
+            margin: 1rem 0 0;
+            padding-left: 1.1rem;
+            color: var(--muted);
+        }
+
+        .feature-list li + li {
+            margin-top: 0.45rem;
+        }
+
+        .card {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(13, 23, 38, 0.8);
+            overflow: hidden;
+        }
+
+        .card-body {
+            padding: 1.1rem;
+        }
+
+        .media-frame {
+            aspect-ratio: 16 / 10;
+            background:
+                linear-gradient(135deg, rgba(79, 209, 197, 0.18), rgba(96, 165, 250, 0.08)),
+                var(--panel-strong);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: grid;
+            place-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-frame video,
+        .media-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .media-frame.contain img {
+            width: 48%;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.4));
+        }
+
+        .media-placeholder {
+            padding: 1rem;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        .media-placeholder i {
+            display: block;
+            font-size: 2rem;
+            color: var(--cyan);
+            margin-bottom: 0.65rem;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin: 0.95rem 0 0;
+        }
+
+        .tag {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.045);
+            color: #c8d5e8;
+            padding: 0.28rem 0.48rem;
+            border-radius: 999px;
+            font-size: 0.74rem;
+            font-weight: 800;
+        }
+
+        .card p {
+            color: var(--muted);
+            margin-top: 0.7rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+            display: grid;
+            gap: 0.55rem;
+            color: #c9d6e7;
+            font-size: 0.92rem;
+        }
+
+        .evidence-list li {
+            display: grid;
+            grid-template-columns: 22px 1fr;
+            gap: 0.5rem;
+        }
+
+        .evidence-list i {
+            color: var(--green);
+            margin-top: 0.25rem;
+        }
+
+        .report-card {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            padding: 1rem;
+        }
+
+        .report-icon {
+            width: 48px;
+            height: 58px;
+            border-radius: var(--radius);
+            display: grid;
+            place-items: center;
+            flex: 0 0 auto;
+            color: var(--bg);
+            background: linear-gradient(135deg, var(--amber), #fff0b8);
+            font-size: 1.2rem;
+        }
+
+        .report-card strong {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .report-card span {
+            color: var(--muted);
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .report-card a {
+            display: inline-flex;
+            margin-top: 0.75rem;
+            color: var(--cyan);
+            font-weight: 900;
+            font-size: 0.84rem;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .timeline-item {
+            border-left: 3px solid var(--cyan);
+            padding: 0.25rem 0 0.25rem 1rem;
+        }
+
+        .timeline-item span {
+            color: var(--muted);
+            display: block;
+            margin-top: 0.3rem;
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 1.4rem;
+            background: linear-gradient(135deg, rgba(79, 209, 197, 0.1), rgba(246, 196, 83, 0.08));
+        }
+
+        .footer {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 2rem 0 3rem;
+            color: var(--soft);
+            font-size: 0.86rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        :focus-visible {
+            outline: 3px solid rgba(79, 209, 197, 0.85);
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 920px) {
+            .hero,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .portrait-card {
+                max-width: 360px;
+                margin: 0 auto;
+            }
+
+            .grid.three {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .metrics {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .proof-list {
+                grid-template-columns: 1fr;
+            }
+
+            .case-study-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .case-study-panel {
+                border-left: 0;
+                border-top: 1px solid var(--line);
+                padding-left: 0;
+                padding-top: 1rem;
+            }
+
+            .nav-links {
+                position: absolute;
+                left: 16px;
+                right: 16px;
+                top: 72px;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                background: rgba(7, 17, 31, 0.98);
+                padding: 0.5rem;
+            }
+
+            .nav-links a {
+                padding: 0.85rem;
+                border-radius: var(--radius);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .menu-button {
+                display: inline-grid;
+                place-items: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .section {
+                padding: 64px 0;
+            }
+
+            .hero {
+                padding-top: 54px;
+                gap: 28px;
+            }
+
+            .section-head {
+                display: block;
+            }
+
+            .grid.two,
+            .grid.three {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+        <nav class="nav" aria-label="Primary navigation">
+            <a class="brand" href="#top" aria-label="Trần Trọng Nguyễn portfolio home">
+                <span class="brand-mark"><i class="fa-solid fa-code"></i></span>
+                <span>Brian<span class="brand-period">.</span></span>
+            </a>
+
+            <button class="menu-button" type="button" id="menuButton" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#projects">Projects</a>
+                <a href="#case-study">Case Study</a>
+                <a href="#evidence">Evidence</a>
+                <a href="#skills">Skills</a>
+                <a href="#off-script">Off script</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page" id="main">
+<div class="edition-line"><span>PERSONAL PORTFOLIO / 2026</span><button id="motionToggle" class="motion-toggle" type="button" aria-pressed="false">Motion: off</button></div>
+        <section class="hero" id="top">
+            <figure class="portrait-card">
+                <img class="portrait" src="assets/images/trantrongnguyen.png" alt="Trần Trọng Nguyễn portrait">
+                <figcaption class="portrait-caption">
+                    <span>Trần Trọng Nguyễn</span>
+                    <span class="caption-status"><span class="status-dot" aria-hidden="true"></span>Open to opportunities</span>
+                </figcaption>
+            </figure>
+
+            <div class="profile-content">
+                <span class="profile-pill">DEVELOPER · EXPLORER · GUITAR PLAYER</span>
+                <p class="intro-name">Hi, I’m Brian. You can also call me Nguyễn.</p><h1>Curiosity into code.<br><em>Ideas into life.</em></h1>
+                <p class="profile-subtitle">Technology and Innovation student at UEH | Software Engineering, AI, Mobile and HCI</p>
+
+                <div class="profile-text">
+                    <p>
+                        I explore how technology can make everyday experiences better, through
+                        <strong>Flutter mobile apps</strong>, AI-assisted workflows, computer-vision concepts, and HCI research prototypes.
+                    </p>
+                    <p>
+                        From a working website to a first prototype, I enjoy turning an idea into something people can actually use. Away from the screen, I play guitar.
+                    </p>
+                </div>
+
+                <div class="metrics" aria-label="Portfolio highlights">
+                    <div class="metric">
+                        <strong>11</strong>
+                        <span>Selected projects</span>
+                    </div>
+                    <div class="metric">
+                        <strong>7</strong>
+                        <span>Demo videos</span>
+                    </div>
+                    <div class="metric">
+                        <strong>7</strong>
+                        <span>Documents linked</span>
+                    </div>
+                    <div class="metric">
+                        <strong>2</strong>
+                        <span>Live websites</span>
+                    </div>
+                </div>
+
+                <div class="hero-actions" aria-label="Portfolio actions">
+                    <a class="button primary" href="#evidence"><i class="fa-solid fa-play"></i> View Demos</a>
+                    <a class="button" href="https://github.com/anystuf/trantrongnguyen" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub Repo</a>
+                    <a class="button" href="assets/reports/academic-record.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-lines"></i> Academic Record</a>
+                </div>
+
+                <div class="proof-list">
+                    <div class="proof-item">
+                        <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+                        <div>
+                            <strong>Mobile app implementation</strong>
+                            <span>Flutter, Dart, Firebase, barcode scanning, API integration, and state tracking.</span>
+                        </div>
+                    </div>
+                    <div class="proof-item">
+                        <i class="fa-solid fa-brain" aria-hidden="true"></i>
+                        <div>
+                            <strong>AI and computer vision</strong>
+                            <span>Pose analysis, meal recognition concepts, model-assisted feedback, and XAI dashboards.</span>
+                        </div>
+                    </div>
+                    <div class="proof-item">
+                        <i class="fa-solid fa-users-gear" aria-hidden="true"></i>
+                        <div>
+                            <strong>Human-centered design</strong>
+                            <span>HCI reports, field research, usability criteria, wireframes, and academic validation.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Selected work</p>
+                    <h2>A growing collection of ideas, built.</h2>
+                    <p class="section-copy">From virtual water puppets to AI fitness coaching, mobile apps, and research-led platforms. Explore by discipline or follow your curiosity.</p>
+                </div>
+                <a class="button small" href="#evidence"><i class="fa-solid fa-folder-open"></i> Evidence Library</a>
+            </div>
+
+            <div class="filter-tabs" role="group" aria-label="Filter portfolio projects">
+                <button class="filter-tab active" type="button" data-filter="all">All projects</button>
+                <button class="filter-tab" type="button" data-filter="web">Websites</button>
+                <button class="filter-tab" type="button" data-filter="mobile">Mobile / Cloud</button>
+                <button class="filter-tab" type="button" data-filter="ai">AI / Vision</button>
+                <button class="filter-tab" type="button" data-filter="hci">HCI / UX</button>
+                <button class="filter-tab" type="button" data-filter="immersive">AR / VR</button>
+<button class="filter-tab" type="button" data-filter="data">Data / Analytics</button>
+<button class="filter-tab" type="button" data-filter="strategy">Strategy</button>
+            </div>
+
+            <p id="projectCount" class="project-count" role="status" aria-live="polite"></p><div class="grid three" id="projectGrid"><article id="project-water-puppet" class="card project-card" data-category="immersive"><a class="project-visual demo-launch" href="assets/videos/water-puppet-vr.mp4" data-demo="water-puppet-vr" aria-label="Watch demo: Vietnamese Water Puppet"><img src="assets/images/water-puppet-prototype.png" alt="Painted wooden farmer puppet in the Blender prototype" loading="lazy" width="1280" height="720"><span class="play-badge" aria-hidden="true">▷ Watch demo</span></a><div class="card-body"><p class="project-type">VR / INTERACTION PROTOTYPE</p><h3>Vietnamese Water Puppet</h3><p>Exploring Vietnamese water puppetry through virtual controls, a wooden character, and a digital stage. The recorded test pairs physical controller input with the Blender view.</p><div class="tag-row"><span class="tag">Blender</span><span class="tag">Python</span><span class="tag">OpenXR</span><span class="tag">Pico</span></div><div class="card-actions"><a class="button small demo-launch" href="assets/videos/water-puppet-vr.mp4" data-demo="water-puppet-vr">▷ Watch demo</a><a class="button small" href="assets/images/water-puppet-prototype.png" target="_blank" rel="noopener noreferrer">Prototype image</a></div></div></article>
+<article id="project-aifit" class="card project-card" data-category="ai"><a class="project-visual demo-launch" href="assets/videos/aifit-demo.mp4" data-demo="aifit-demo" aria-label="Watch demo: AIFit Trainer Hub"><img src="assets/images/aifit-demo.jpg" alt="AIFit recorded demo showing pose coaching and exercise feedback" loading="lazy" width="1280" height="720"><span class="play-badge" aria-hidden="true">▷ Watch demo</span></a><div class="card-body"><p class="project-type">AI / FITNESS PROTOTYPE</p><h3>AIFit Trainer Hub</h3><p>Pose-based exercise coaching with visual feedback, workout tracking, and progress analytics. Explore the recorded web prototype and the product concept deck.</p><div class="tag-row"><span class="tag">Computer vision</span><span class="tag">Pose analysis</span><span class="tag">Product design</span></div><div class="card-actions"><a class="button small demo-launch" href="assets/videos/aifit-demo.mp4" data-demo="aifit-demo">▷ Watch demo</a><a class="button small" href="assets/reports/aifit-report.pdf" target="_blank" rel="noopener noreferrer">Read report</a><a class="button small" href="assets/images/aifit-mvp.jpg" target="_blank" rel="noopener noreferrer">Product concept</a></div></div></article>
+<article id="project-genesis" class="card project-card" data-category="immersive"><a class="project-visual demo-launch" href="assets/videos/ueh-genesis-ar.mp4" data-demo="ueh-genesis-ar" aria-label="Watch demo: UEH Genesis · Smart Cup"><img src="assets/images/ueh-genesis-ar.jpg" alt="Phone scanning the UEH logo on a physical cup for the AR experience" loading="lazy" width="1280" height="720"><span class="play-badge" aria-hidden="true">▷ Watch demo</span></a><div class="card-body"><p class="project-type">AR / PHYSICAL COMPUTING</p><h3>UEH Genesis · Smart Cup</h3><p>A team concept linking a smart cup, IoT input, and Unity AR to tell the story of UEH’s heritage. See both the AR interaction and the physical cup base.</p><div class="tag-row"><span class="tag">Unity AR</span><span class="tag">IoT</span><span class="tag">Blender</span><span class="tag">Gamification</span></div><div class="card-actions"><a class="button small demo-launch" href="assets/videos/ueh-genesis-ar.mp4" data-demo="ueh-genesis-ar">▷ Watch demo</a><a class="button small demo-launch" href="assets/videos/ueh-genesis-cup.mp4" data-demo="ueh-genesis-cup">▷ Cup base demo</a><a class="button small" href="assets/reports/ueh-genesis-report.pdf" target="_blank" rel="noopener noreferrer">Read report</a></div></div></article>
+<article id="project-nutrio" class="card project-card" data-category="mobile"><a class="project-visual demo-launch" href="assets/videos/nutrio-demo-scan.mp4" data-demo="nutrio-demo-scan" aria-label="Watch demo: Nutrio"><img src="assets/images/nutrio-scan.jpg" alt="Nutrio app scan flow from the recorded Android demonstration" loading="lazy" width="1280" height="720"><span class="play-badge" aria-hidden="true">▷ Watch demo</span></a><div class="card-body"><p class="project-type">MOBILE / NUTRITION TRACKING</p><h3>Nutrio</h3><p>A Flutter nutrition tracker combining meal logging, barcode scanning, and nutrition data. My work focused on implementation, API integration, debugging, and scanning features.</p><div class="tag-row"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">REST APIs</span></div><div class="card-actions"><a class="button small demo-launch" href="assets/videos/nutrio-demo-scan.mp4" data-demo="nutrio-demo-scan">▷ Watch demo</a><a class="button small demo-launch" href="assets/videos/nutrio-demo-dashboard.mp4" data-demo="nutrio-demo-dashboard">▷ Dashboard demo</a><a class="button small" href="assets/reports/nutrio-report.pdf" target="_blank" rel="noopener noreferrer">Read report</a></div></div></article>
+<article id="project-uii" class="card project-card" data-category="web"><a class="project-visual " href="assets/images/uii-website.png" target="_blank" rel="noopener noreferrer" aria-label="Open image: UEH Institute of Innovation"><img src="assets/images/uii-website.png" alt="Screenshot of the UEH Institute of Innovation website" loading="lazy" width="1280" height="720"><span class="image-badge" aria-hidden="true">View image ↗</span></a><div class="card-body"><p class="project-type">LIVE WEBSITE / EDUCATION</p><h3>UEH Institute of Innovation</h3><p>A website I helped develop for UEH’s innovation institute, connecting education, startup programs, and research in one public-facing experience.</p><div class="tag-row"><span class="tag">Web development</span><span class="tag">Information design</span></div><div class="card-actions"><a class="button small" href="https://uii.ueh.edu.vn/vi/" target="_blank" rel="noopener noreferrer">Visit website ↗</a></div></div></article>
+<article id="project-cirbe" class="card project-card" data-category="web"><div class="live-cover bio-cover"><span>LIVE WEBSITE / SUSTAINABILITY</span><strong>CirBE<span>Turning waste. Creating value.</span></strong></div><div class="card-body"><p class="project-type">LIVE WEBSITE / SUSTAINABILITY</p><h3>Bioforge / CirBE</h3><p>A website I helped develop for circular bioenergy, presenting waste solutions and pathways to resource recovery.</p><div class="tag-row"><span class="tag">Web development</span><span class="tag">Sustainability</span></div><div class="card-actions"><a class="button small" href="https://bioforgevn.com/" target="_blank" rel="noopener noreferrer">Visit website ↗</a></div></div></article>
+<article id="project-usi" class="card project-card" data-category="hci"><a class="project-visual " href="assets/images/usi-research.png" target="_blank" rel="noopener noreferrer" aria-label="Open image: USI Hub Innovation Platform"><img src="assets/images/usi-research.png" alt="Workstream 1C research design map connecting workflow questions to product requirements" loading="lazy" width="1280" height="720"><span class="image-badge" aria-hidden="true">View image ↗</span></a><div class="card-body"><p class="project-type">HCI / INCUBATION PLATFORM PROTOTYPE</p><h3>USI Hub Innovation Platform</h3><p>Research and an interactive demonstrator for startup incubation workflows: shared context, follow-up actions, knowledge reuse, and AI proposals with human approval. The app is a prototype, not an operational system.</p><div class="tag-row"><span class="tag">User research</span><span class="tag">JavaScript</span><span class="tag">Human-in-the-loop AI</span></div><div class="card-actions"><a class="button small" href="https://github.com/anystuf/usihubdemo" target="_blank" rel="noopener noreferrer">Explore source ↗</a><a class="button small" href="assets/images/usi-research.png" target="_blank" rel="noopener noreferrer">Research design map</a></div></div></article>
+<article id="project-design-hub" class="card project-card" data-category="hci"><div class="live-cover uii-cover"><span>EDTECH / FRONTEND PROTOTYPE</span><strong>Learn. Build. Reflect.<span>Design Thinking Learning Hub</span></strong></div><div class="card-body"><p class="project-type">EDTECH / FRONTEND PROTOTYPE</p><h3>UII Design Thinking Hub</h3><p>A learning-platform prototype with course discovery, learner workspaces, project galleries, and review flows. Built around the relationship between learning, evidence, and feedback.</p><div class="tag-row"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span></div><div class="card-actions"><a class="button small" href="https://github.com/anystuf/uii_design_thinking_hub" target="_blank" rel="noopener noreferrer">Explore source ↗</a></div></div></article>
+<article id="project-clickstream" class="card project-card" data-category="data"><a class="project-visual demo-launch" href="assets/videos/clickstream-analytics.mp4" data-demo="clickstream-analytics" aria-label="Watch demo: E-commerce Clickstream Analytics"><img src="assets/images/clickstream-analytics.jpg" alt="Recorded analytics dashboard for e-commerce clickstream data" loading="lazy" width="1280" height="720"><span class="play-badge" aria-hidden="true">▷ Watch demo</span></a><div class="card-body"><p class="project-type">DATA / TEAM PROJECT</p><h3>E-commerce Clickstream Analytics</h3><p>Turning browsing behavior into visual analysis and product recommendations. I developed Python visualizations and brought the analytics into a Streamlit dashboard; the video shows the team’s combined work.</p><div class="tag-row"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Big Data</span></div><div class="card-actions"><a class="button small demo-launch" href="assets/videos/clickstream-analytics.mp4" data-demo="clickstream-analytics">▷ Watch demo</a><a class="button small" href="assets/reports/clickstream-report.pdf" target="_blank" rel="noopener noreferrer">Read report</a></div></div></article>
+<article id="project-library" class="card project-card" data-category="hci"><a class="project-visual " href="assets/images/hci-prototype.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open image: Smart Library Map"><img src="assets/images/hci-prototype.jpg" alt="Design screens from the Smart Library Map HCI report" loading="lazy" width="1280" height="720"><span class="image-badge" aria-hidden="true">View image ↗</span></a><div class="card-body"><p class="project-type">HCI / RESEARCH & PROTOTYPING</p><h3>Smart Library Map</h3><p>A research-led library navigation concept, from storyboards and paper prototypes to high-fidelity design and usability evaluation.</p><div class="tag-row"><span class="tag">User research</span><span class="tag">Prototyping</span><span class="tag">Usability</span></div><div class="card-actions"><a class="button small" href="assets/reports/hci-final-report.pdf" target="_blank" rel="noopener noreferrer">Read report</a></div></div></article>
+<article id="project-nursery" class="card project-card" data-category="strategy"><a class="project-visual " href="assets/images/innovation-concept.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open image: Nursery Seeding Machine"><img src="assets/images/innovation-concept.jpg" alt="Nursery seeding machine product concept from the innovation report" loading="lazy" width="1280" height="720"><span class="image-badge" aria-hidden="true">View image ↗</span></a><div class="card-body"><p class="project-type">INNOVATION / PRODUCT CONCEPT</p><h3>Nursery Seeding Machine</h3><p>An agricultural automation concept combining controlled germination conditions with a value proposition and business model. Presented as an innovation-management team project.</p><div class="tag-row"><span class="tag">AgriTech</span><span class="tag">Product strategy</span><span class="tag">Business model</span></div><div class="card-actions"><a class="button small" href="assets/reports/innovation-report.pdf" target="_blank" rel="noopener noreferrer">Read report</a></div></div></article></div></section>
+
+
+        <section class="section" id="case-study">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Case study deep dive</p>
+                    <h2>Nutrio: less friction, better tracking.</h2>
+                    <p class="section-copy">A closer look at the problem, implementation, and working mobile flows behind the nutrition tracking project.</p>
+                </div>
+                <a class="button small" href="assets/reports/nutrio-report.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i> Full Report</a>
+            </div>
+
+            <article class="card case-study">
+                <div class="card-body case-study-layout">
+                    <div>
+                        <div class="media-frame">
+                            <video controls muted playsinline preload="none" poster="assets/images/nutrio-scan.jpg" aria-label="Nutrio scan demo" src="assets/videos/nutrio-demo-scan.mp4"></video>
+                        </div>
+
+                        <h3>Problem Statement</h3>
+                        <p>Nutrition tracking becomes inconsistent when users must manually search foods, estimate portions, and log meals across many steps.</p>
+
+                        <h3 style="margin-top: 1.2rem;">Engineered Solution</h3>
+                        <p>A Flutter Android MVP that combines scan-first meal logging, barcode-based product lookup, Firebase-backed state, and nutrition API integration.</p>
+
+                        <h3 style="margin-top: 1.2rem;">Key Technical Features</h3>
+                        <ul class="feature-list">
+                            <li>Barcode scanning flow for faster food lookup and reduced manual entry.</li>
+                            <li>Firebase/Firestore-backed user state and progress tracking.</li>
+                            <li>REST API nutrition data integration for food and macro information.</li>
+                            <li>Demo evidence showing both scan flow and dashboard/tracking flow.</li>
+                        </ul>
+                    </div>
+
+                    <aside class="case-study-panel" aria-label="Nutrio evidence links">
+                        <h3>Evidence Library</h3>
+                        <p>Recruiters can verify the work through the raw artifacts below.</p>
+                        <div class="card-actions">
+                            <a class="button small" href="assets/videos/nutrio-demo-scan.mp4" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-video"></i> Scan Demo</a>
+                            <a class="button small" href="assets/videos/nutrio-demo-dashboard.mp4" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-chart-line"></i> Dashboard Demo</a>
+                            <a class="button small" href="assets/reports/nutrio-report.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i> Report PDF</a>
+                        </div>
+
+                        <div class="metric" style="margin-top: 1rem;">
+                            <strong>Proof</strong>
+                            <span>Video + PDF attached</span>
+                        </div>
+                        <div class="metric" style="margin-top: 0.75rem;">
+                            <strong>Role</strong>
+                            <span>Lead Developer</span>
+                        </div>
+                    </aside>
+                </div>
+            </article>
+        </section>
+
+        <section class="section" id="evidence">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Evidence library</p>
+                    <h2>See the work in motion.</h2>
+                    <p class="section-copy">Seven recorded demos across VR, AR, AI, mobile, and data. Pick a project to watch, then explore the reports behind it.</p>
+                </div>
+            </div>
+
+            <div class="demo-gallery" aria-label="Project demo videos"><a class="demo-tile demo-launch" href="assets/videos/water-puppet-vr.mp4" data-demo="water-puppet-vr"><div class="demo-thumb"><img src="assets/images/water-puppet-vr.jpg" alt="" loading="lazy" width="1280" height="720"><span class="play-badge" aria-hidden="true">▷ Play video</span></div><div class="demo-tile-copy"><h3>Water Puppet · VR control test</h3><p>Recorded prototype test with a headset and controllers alongside the Blender view. Work in progress; this is not a performance benchmark.</p></div></a>
+<a class="demo-tile demo-launch" href="assets/videos/aifit-demo.mp4" data-demo="aifit-demo"><div class="demo-thumb"><img src="assets/images/aifit-demo.jpg" alt="" loading="lazy" width="1280" height="720"><span class="play-badge" aria-hidden="true">▷ Play video</span></div><div class="demo-tile-copy"><h3>AIFit · product walkthrough</h3><p>Recorded walkthrough of the web prototype: health tracking, pose coaching, and workout analytics. Includes the original narration and on-screen subtitles.</p></div></a>
+<a class="demo-tile demo-launch" href="assets/videos/ueh-genesis-ar.mp4" data-demo="ueh-genesis-ar"><div class="demo-thumb"><img src="assets/images/ueh-genesis-ar.jpg" alt="" loading="lazy" width="1280" height="720"><span class="play-badge" aria-hidden="true">▷ Play video</span></div><div class="demo-tile-copy"><h3>UEH Genesis · AR scan</h3><p>A recorded scan of the UEH logo on the cup, connecting a physical object to a Unity AR experience.</p></div></a>
+<a class="demo-tile demo-launch" href="assets/videos/ueh-genesis-cup.mp4" data-demo="ueh-genesis-cup"><div class="demo-thumb"><img src="assets/images/ueh-genesis-cup.jpg" alt="" loading="lazy" width="1280" height="720"><span class="play-badge" aria-hidden="true">▷ Play video</span></div><div class="demo-tile-copy"><h3>UEH Genesis · smart cup base</h3><p>A separate hardware demonstration of the physical cup base used in the team project.</p></div></a>
+<a class="demo-tile demo-launch" href="assets/videos/nutrio-demo-scan.mp4" data-demo="nutrio-demo-scan"><div class="demo-thumb"><img src="assets/images/nutrio-scan.jpg" alt="" loading="lazy" width="1280" height="720"><span class="play-badge" aria-hidden="true">▷ Play video</span></div><div class="demo-tile-copy"><h3>Nutrio · scan and recognition</h3><p>A walkthrough of the mobile scanning and food-recognition flow.</p></div></a>
+<a class="demo-tile demo-launch" href="assets/videos/nutrio-demo-dashboard.mp4" data-demo="nutrio-demo-dashboard"><div class="demo-thumb"><img src="assets/images/nutrio-dashboard.jpg" alt="" loading="lazy" width="1280" height="720"><span class="play-badge" aria-hidden="true">▷ Play video</span></div><div class="demo-tile-copy"><h3>Nutrio · dashboard and tracking</h3><p>A second walkthrough showing the nutrition dashboard and tracking flow.</p></div></a>
+<a class="demo-tile demo-launch" href="assets/videos/clickstream-analytics.mp4" data-demo="clickstream-analytics"><div class="demo-thumb"><img src="assets/images/clickstream-analytics.jpg" alt="" loading="lazy" width="1280" height="720"><span class="play-badge" aria-hidden="true">▷ Play video</span></div><div class="demo-tile-copy"><h3>Clickstream · analytics demo</h3><p>Team demonstration of an e-commerce clickstream analysis and recommendation project. My contribution covered Python visualization and the Streamlit dashboard.</p></div></a></div>
+<h3 class="reports-heading">Go deeper: project reports</h3>
+
+
+            <div class="grid three" style="margin-top: 1rem;" aria-label="Report links">
+                <article class="card report-card">
+                    <div class="report-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div>
+                        <strong>Nutrio Software Report</strong>
+                        <span>Mobile nutrition project documentation.</span>
+                        <a href="assets/reports/nutrio-report.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+                    </div>
+                </article>
+
+                <article class="card report-card">
+                    <div class="report-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div>
+                        <strong>AIFit Report</strong>
+                        <span>AI fitness trainer project documentation.</span>
+                        <a href="assets/reports/aifit-report.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+                    </div>
+                </article>
+
+                <article class="card report-card">
+                    <div class="report-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div>
+                        <strong>HCI Final Report</strong>
+                        <span>Human-computer interaction research proof.</span>
+                        <a href="assets/reports/hci-final-report.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+                    </div>
+                </article>
+
+                <article class="card report-card">
+                    <div class="report-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div>
+                        <strong>Innovation Management</strong>
+                        <span>Nursery seeding machine case study.</span>
+                        <a href="assets/reports/innovation-report.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+                    </div>
+                </article>
+
+                <article class="card report-card">
+                    <div class="report-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div>
+                        <strong>UEH Genesis</strong>
+                        <span>Spatial product concept report.</span>
+                        <a href="assets/reports/ueh-genesis-report.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+                    </div>
+                </article>
+
+                <article class="card report-card">
+                    <div class="report-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div>
+                        <strong>Academic Record</strong>
+                        <span>Transcript-style academic validation file.</span>
+                        <a href="assets/reports/academic-record.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+                    </div>
+                </article>
+                <article class="card report-card">
+                    <div class="report-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div>
+                        <strong>Clickstream Analytics</strong>
+                        <span>Team report on e-commerce behavior, visualization, and recommendations.</span>
+                        <a href="assets/reports/clickstream-report.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section off-script" id="off-script"><div><p class="eyebrow">OFF SCRIPT / ON STRINGS</p><h2>There’s rhythm<br>behind the logic.</h2><p class="section-copy">I build software. I also play guitar. This little corner brings both together: six strings, a little curiosity, and room to experiment.</p><p class="sound-caption">Tap a string to try a synthesized note. Sound starts only when you play.</p></div><div class="string-studio"><div class="studio-heading"><span>THE SIX-STRING BREAK</span><span>STANDARD TUNING</span></div><div class="strings" aria-label="Interactive guitar tuning notes"><button class="guitar-string" data-note="E2" data-frequency="82.41" type="button" aria-label="Play E2"><span>01</span><span class="string-line"></span><strong>E2</strong></button><button class="guitar-string" data-note="A2" data-frequency="110" type="button" aria-label="Play A2"><span>02</span><span class="string-line"></span><strong>A2</strong></button><button class="guitar-string" data-note="D3" data-frequency="146.83" type="button" aria-label="Play D3"><span>03</span><span class="string-line"></span><strong>D3</strong></button><button class="guitar-string" data-note="G3" data-frequency="196" type="button" aria-label="Play G3"><span>04</span><span class="string-line"></span><strong>G3</strong></button><button class="guitar-string" data-note="B3" data-frequency="246.94" type="button" aria-label="Play B3"><span>05</span><span class="string-line"></span><strong>B3</strong></button><button class="guitar-string" data-note="E4" data-frequency="329.63" type="button" aria-label="Play E4"><span>06</span><span class="string-line"></span><strong>E4</strong></button></div><p id="soundStatus" role="status" aria-live="polite">Ready when you are.</p></div></section><section class="section" id="skills">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Capabilities</p>
+                    <h2>Technical stack</h2>
+                    <p class="section-copy">A compact view of the tools used across the evidence above.</p>
+                </div>
+            </div>
+
+            <div class="grid three">
+                <article class="card card-body">
+                    <h3>Engineering</h3>
+                    <p>C++, Python, Dart, JavaScript, SQL, data structures, REST APIs, and local-first app logic.</p>
+                    <div class="tag-row">
+                        <span class="tag">C++</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Dart</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </article>
+
+                <article class="card card-body">
+                    <h3>Mobile and Cloud</h3>
+                    <p>Flutter apps, Firebase authentication, Firestore, app state, camera-based flows, and Android delivery.</p>
+                    <div class="tag-row">
+                        <span class="tag">Flutter</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">Android</span>
+                        <span class="tag">APIs</span>
+                    </div>
+                </article>
+
+                <article class="card card-body">
+                    <h3>Product and HCI</h3>
+                    <p>User research, interaction mapping, accessibility basics, usability analysis, product storytelling, and report writing.</p>
+                    <div class="tag-row">
+                        <span class="tag">HCI</span>
+                        <span class="tag">UX Research</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">Strategy</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="education">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Education and validation</p>
+                    <h2>UEH Technology and Innovation</h2>
+                    <p class="section-copy">Bachelor's program at University of Economics Ho Chi Minh City, expected graduation 2027.</p>
+                </div>
+                <a class="button small" href="assets/reports/academic-record.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-graduation-cap"></i> Academic Record</a>
+            </div>
+
+            <div class="grid two">
+                <article class="card card-body">
+                    <h3>Learning through building</h3>
+                    <p>Technology and Innovation coursework spanning mobile development, AI, human-computer interaction, and product strategy. Selected grades are from the June 2026 academic record.</p>
+                    <div class="tag-row">
+                        <span class="tag">Technology Innovation</span>
+                        <span class="tag">AI Project</span>
+                        <span class="tag">HCI</span>
+                    </div>
+                </article>
+
+                <article class="card card-body">
+                    <h3>Selected performance</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <strong>Technological Innovation: 10.0</strong>
+                            <span>Strongest validation for product and innovation work.</span>
+                        </div>
+                        <div class="timeline-item">
+                            <strong>AI Project Execution: 9.9</strong>
+                            <span>Evidence-aligned AI project work.</span>
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Human-Computer Interaction: 9.0</strong>
+                            <span>Supports the usability-focused project framing.</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="contact">
+                <div>
+                    <p class="eyebrow">Contact</p>
+                    <h2>Let's build something useful.</h2>
+                    <p class="section-copy">I’m open to engineering roles, creative collaborations, and web projects. Whether you’re hiring or have an idea to build, I’d love to hear from you.</p>
+                </div>
+                <div class="hero-actions" style="margin-top: 0;">
+                    <a class="button primary" href="mailto:trantrongnguyenhg@gmail.com"><i class="fa-regular fa-envelope"></i> Email</a>
+                    <a class="button" href="https://github.com/anystuf" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a class="button" href="tel:+84941951799"><i class="fa-solid fa-phone"></i> +84 941 951 799</a>
+                </div>
+            </div>
+        </section>
+    </main><dialog id="demoDialog" class="demo-dialog" aria-labelledby="demoTitle" aria-describedby="demoDescription"><div class="demo-dialog-top"><p class="eyebrow">PROJECT SCREENING</p><button type="button" class="button small" id="closeDemo" aria-label="Close video demo">Close ✕</button></div><h2 id="demoTitle"></h2><video id="demoPlayer" controls playsinline preload="none"></video><p id="demoDescription"></p><p id="demoError" role="status" hidden>Playback is unavailable. Try opening the video file directly.</p><a id="demoDirect" class="button small" target="_blank" rel="noopener noreferrer">Open video file ↗</a></dialog>
+
+    <footer class="footer">
+        <span>&copy; 2026 Trần Trọng Nguyễn.</span>
+        <span>Made with curiosity. And a little rhythm.</span>
+    </footer>
+
+    <script src="demo-data.js" defer></script>
+<script src="portfolio.js" defer></script>
+</body>
+</html>
